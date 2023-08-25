@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 자바스크립트에서 제공을 해주고 있는 객체 -->
+<title>기본내장객체</title>
+  
+<script type="text/javascript">
+/* - https://www.w3schools.com/jsref/default.asp: 자바스크립트와 관련된 공식홈페이지 */
+
+/* 1. Object 객체  
+// - toString() 메서드. => 이전 실습!) alert에서 참조변수를 입력으로 전달했을 때 객체에서 작성했던 toString() 메소드가 실행됨.
+// - 객체를 문자열로 변환할 때 자동으로 호출.
+	var object = new Object(); 
+	//자바스크립트는 공식적으로 상속이라는 문법을 제공해주지 않음 => 따라서 객체나 생성자함수들이 object를 상속하고 있는 형태가 아니다!!
+  
+	alert(object);
+	alert(object.toString());
+
+// - toString() 메서드정의 (전형적인 객체 생성의 방법)
+	var student = {
+		name:'홍길동', // key:value형태로 데이터를 정의할 수 있었음
+		grade:'고등학교 1학년',
+		toString:function(){ //toString메소드를 정의하면서 이름과 학년을 리턴해주게끔 정의
+			return this.name+':'+this.grade;
+		}
+	};
+
+	alert(student); 
+	//객체를 입력으로 넣어주면 alert메소드는 내부에서 toString메소드를 호출하게끔 기능이 정의되어져 있어서 
+	//student 객체 내부에 작성된 toString 메서드가 호출되어 결과에 반영되는 것을 알 수 있다.
+*/
+
+/* 2. Number 객체 
+// - 생성 방법 2가지
+	var numberFromConstructor = new Number(273);
+	var numberFromLiteral = 273; //var이 Integer라고 하는 래퍼클래스의 형태이다.
+	//자바스크립트는 처음부터 기본자료형의 형태를 래퍼클래스로 감싸서 처리하고 있는 것이다. 
+	//-> 이 형태는 다른 프로그래밍 언어인 R언어나 파이썬에서도 동일하게 적용되고 있음.
+
+	
+	//alert(typeof(numberFromConstructor)); //변수의 타입에 대해서 출력 => object라는 자료형타입이라는 정보를 결과로 보여줌
+	//alert(numberFromConstructor.toString()); //toString()을 직관적으로 호출하는 것임. : 273
+	//alert(numberFromConstructor); //위와 동일하게 273으로 출력됨. -> 확인용으로 추가한 코드
+	
+	alert(typeof(numberFromLiteral)); //타입을 number라고 출력을 해주고 있음
+	alert(numberFromLiteral.toString()); //object가 아니니까 에러가 날 것이라고 예상했지만 273이라고 정상적으로 출력되고 있음.
+	//객체가 아니라 변수인데 어떻게 toString의 호출이 가능한 것일까? 변수의 var키워드 의미를 int로 오해하면 안된다. => 자바스크립트는 기본자료형의 개념이 존재하지 않는다.
+	//자바와 매핑시킨다면 기본자료형들을 내부에서 래퍼클래스로 감싸주는 형태를 생각하면 된다.
+	//=> 자바스크립트는 래퍼클래스를 사용해서 데이터를 처리하는 형태로 기본자료형의 개념 자체를 처리를 해주게끔 구현이 되어져 있는 것이다.
+	//   (R언어, 파이썬도 동일한 개념을 가지고 있음)
+	
+	
+// - Number 생성자 함수의 속성
+//  .MAX_VALUE: 자바스크립트의 숫자가 나타낼 수 있는 최대 숫자.
+//  .MIN_VALUE:                      "               최소 숫자.
+//  .NEGATIVE_INFINITY:음의 무한대 숫자.
+//  .POSITIVE_INFINITY:양의 무한대 숫자.
+//  .NaN: 자바스크립트 숫자로 나타낼 수 없는 숫자.
+	//alert(Number.MAX_VALUE); //자바스크립트에서 표현할 수 있는 최대 숫자를 출력함(e표기법으로 보여줌) -> 1.7976931348623157e+308 -> 앞에 숫자 *10의 308승임.
+	
+	
+//  .toString() : 진법값을 리턴
+//  .toFixed() : 고정 소수점 방식
+	var pi = new Number(Math.PI); 
+	alert(pi+':'+pi.toString()); //진법값 그 자체를 보여줌
+	alert(pi+':'+pi.toFixed()); //소수점이하를 버리면서 정수에 해당되어지는 값만 보여줌.
+*/
+
+/* 3. String 객체 -> 자바스크립트가 제공해주는 객체로써 생성자함수로 정의되어져 있음 
+	var stringFromLiteral = 'Hello World..!';
+	var stringFromConstructor = new String('Hello World..!');
+	//자바스크립트에서도 자주 사용하는 자료형을 기본자료형처럼 사용할 수 있도록 형태를 제공해준다는 것으로 생각.
+	
+	alert(typeof(stringFromLiteral)+' : '+typeof(stringFromConstructor)); // string : object로써 자료형의 결과를 출력함.
+	
+	
+// - length 속성:문자열 길이
+	alert(stringFromLiteral.length); // 14
+	alert(stringFromConstructor.length); // 14
+	
+	var characters = prompt('비밀번호를 입력하세요', '6글자 이상');
+	
+	if(characters.length < 6){ //전달받은 값에 길이를 따져서 6글자 미만일때 아래에 문자열이 출력되도록 함.
+		alert('6자 이상 입력하세요.');
+	}else{
+		alert('입력되었습니다.');
+	}
+
+// - 메서드 체이닝(Method Chaining): 연속적인 메서드의 호출방식을 의미
+	var output = 'Hello JavaScript...!';
+	
+	//alert(output.toLowerCase()); 
+	//문자열의 메소드를 호출하면 .으로 지정한 변수안에 담겨져 있는 문자열 데이터의 
+	//알파벳을 Lower일 때는 소문자로 Upper일 때는 대문자로 변환을 해줌.
+	
+	//output = output.toLowerCase();  // 소문자로 바뀌면서 저장된 텍스트를
+	//alert(output.substring(0, 10)); // 0번부터 카운팅이되어 10까지를 추출해서 출력해준다. (공백 포함)
+	//substring(시작인덱스, 마지막인덱스)로 지정하여 읽어올 문자 데이터를 추출해주는 기능이다.
+	
+	//output = output.substring(0, 10);
+	
+	output = output.toLowerCase().substring(0, 10); //toLowerCase()의 메소드를 실행하고 끝나는 즉시 substring()을 실행하도록 한다. => 위에 작업을 한 줄의 코드로 작성한 것임
+	//***이렇듯 '.' 연산자을 이용해서 연속으로 메소드를 호출해주는 방식을 메서드 체이닝이라고 불러는 것이다. 
+	
+	alert(output);
+*/
+
+
+/* 4. Array 객체 
+// - Array 객체 생성 방법:4가지
+//   기본 문법 가변 인자 함수에서 다뤘음
+//   배열이라는 생성자함수를 통해서 다양한 값에 대한 처리가 가능해진다.
+    var array1 = [52, 273, 103, 57, 32];
+    var array2 = new Array();
+    var array3 = new Array(10); //메모리 공간에 확보
+    var array4 = new Array(52, 273, 103, 57, 32); //전달되는 갯수만큼 메모리가 확보
+*/	
+    
+    
+
+/* 5. Date 객체 
+    var date = new Date();
+    alert(date); //한국표준시에 형태로 결과를 제공.
+*/
+
+
+/* 6. Math 객체: 수학에 관련된 기능과 값들을 쉽게 사용을 할 수 있게끔 제공함. 
+// - 생성자 함수를 사용하지 않는 객체.
+    alert(Math.E);
+    alert(Math.LN2); //자연루브2?
+
+
+// - 자바스크립트의 함수는 하나의 자료형이므로 변수에 저장 가능.
+// - 따라서 Math 객체의 메서드를 변수에 저장해서 함수처럼 쉽게 사용할 수 있음.
+    var findMax = Math.max; //최대값을 찾아주는 기능의 메소드를 지정해서 변수에 담아줌
+    
+    
+    alert(findMax(52, 273, 103, 57)); //내가 지정한 변수 이름을 통해서 다이렉트로 접근하여 메서드를 호출할 수 있도록 한다.
+*/
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

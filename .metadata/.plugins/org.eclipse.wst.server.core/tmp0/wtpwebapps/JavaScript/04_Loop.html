@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문</title>
+
+<script type="text/javascript">
+//브라우저는 컴퓨터위에서 동작되어지는 프로그램일 뿐이다. 그렇기 때문에 컴퓨터의 특성을 잘 반영하여 동작되게끔 처리를 해줘야 한다.
+//그러한 측면에 일환을 놓고 본다면 컴퓨터가 제일 잘하는 것이 반복동작이기 때문에 
+//자바스크립트 프로그래밍 문법에서도 반복문을 필수적인 요소로 제공하고 있다.
+//이러한 반복문도 자바와 동일하게 제공한다.
+
+/* 1. while 반복문 -> 조건이 맞지 않다면 한 번도 실행되지 않을 수 있음
+	// 예제1
+	var value = 1; //반복되는 count에 대한 변수 선언.
+	
+	while(value < 5){
+		alert(value+'번째 반복');
+		value++; //반복문을 벗어날 수 있는 명령문이 선언을 꼭 해줘야 함!!
+	}
+
+	// 예제2 - 컴퓨터의 성능을 체크하기 위함
+	var value = 0;
+	var startTime = new Date().getTime(); //시간을 땡겨옴 
+	
+	while(new Date().getTime() < startTime+1000){ //1초에 몇번 반복하는지를 체크해본 것이다.
+		//startTime밀리세컨드 단위임. 1초가 되기전에 시간을 계속 땡겨오게 됨
+		value++; //계속 값을 증가시킴!!
+	}//퍼포먼스가 좋으면 좋을수록 숫자는 높을 것임!!
+	
+	alert(value);
+*/
+
+/* 2. do~ while 반복문 -> 조건이 뒤에 붙음 따라서 반드시 한 번은 꼭 실행됨
+	var value = 1;
+
+	do{
+		alert(value+'번째 반복.');
+		value++;
+	}while(value <= 5);
+*/
+
+/* 3. for 반복문 - 총 몇번 반복되는지 한 눈에 보이는 것이 큰 장점임 (반복문에서 제일 많이 사용됨)
+	var array = ['포도', '사과', '바나나', '망고']; //배열의 갯수는 length필드에 담아주고 있다.
+	
+	for(var i=0; i < array.length; i++){
+		alert(array[i]); //담긴 데이터들을 전체 다 출력!
+	}
+*/
+
+/* 4. for in 반복문 
+       -> 자바 4버전에서 추가되어짐 자바는 (배열값 : 변수)를 써줘서 담겨진 데이터 갯수만큼 하나씩 꺼내오면서 반복되는 구조로 정의가 되어 있었음
+          자바스크립트도 똑같은데 콜론(:) 대신 in으로 정의되어져 있다는 것만 차이점이다.
+	var array = ['포도', '사과', '바나나', '망고'];
+	for(var e in array){ //변수 선언 in 배열변수
+		alert(array[e]);
+	}
+*/
+
+/* 5. break 키워드 -> 반복문을 벗어나라는 의미
+	for(var i=0; true; i++){
+		alert(i+'번째 반복');
+		
+		if(!confirm('계속하시겠습니까?')){
+			break;
+		}
+	}
+*/
+
+/* 6. continue 키워드 -> 반복의 조건으로 올라가라는 의미
+	for(var i=0; i < 5; i++){
+		continue;
+		alert(i+'번째 반복');
+	}
+*/
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

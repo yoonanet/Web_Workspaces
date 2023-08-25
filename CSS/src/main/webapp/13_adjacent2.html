@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8"> <!-- 같은 동위관계에 있더라도 인접과 형제로 나뉘어지는 것임 즉, 합쳐서는 동위선택자로 부름  -->
+<title>인접(adjacent) & 형제(sibling) 선택자</title>
+
+<style type="text/css">
+	/* 인접(adjacent) 선택자: +기호를 사용
+	   - h1 태그의 바로 뒤에 위치하는 h2 태그의 color 속성에 red 키워드를 적용한다.
+	     바로 인접한 태그를 선택하는 선택자인 것이다.  
+	*/
+	h1 + h2 { color:red; }
+	/* h1을 기준으로 뒤에있는 h2를 선택하게 되는 것이다. */
+	
+	/* 형제(sibling) 선택자: ~기호를 사용
+	   - h1 태그의 뒤에 위치하는 h2 태그의 background 속성에 silver 키워드를 적용한다.
+	   같은 레벨에 있는 특정 기준점에 있는 동위 관계의 태그를 선택하고 있는 것이다.
+	   즉, 대등한 관계에서 특정관계에 있는 태그 바로 뒤에 오는 모든 태그들을 선택함. */
+	h1 ~ h2 { background:silver; }
+	
+</style>
+
+
+</head>
+<body>
+	<h1>Header - 1</h1>
+	<h2>Header - 2</h2>
+	<h2>Header - 2</h2>
+	<h2>Header - 2</h2>
+	<h3>Header - 3</h3>
+</body>
+</html>

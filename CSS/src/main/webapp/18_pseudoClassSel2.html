@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일반구조선택자</title>
+
+<style type="text/css">
+	li > a:first-child { color: red; }
+	/* 대상은 li전체가 되고, 그 li들에서 자식 앵커태그 중에서도 첫번째를 선택하겠다는 의미이다.
+	   즉, li에서 자식으로 앵커를 두고 있는 것으로 전체를 다 해당된다. */
+	li:first-child > a { background: yellow; } 
+	/* li의 첫번째로 지정이 되고, 그 첫번째에서 자식 a태그를 말하는 것이다. */
+	/* 선택이 되고 있는 것이 li안에 있는 앵커가 대상인 것이고,
+	   a태그는 인라인 영역을 가지는 대표적인 태그이기 때문에 텍스트 영역만 백그라운드로 색상이 깔리게 되는 것이다. */
+</style>
+
+
+</head>
+<body>
+  <ul>
+      <li><a href="#">Condrasa</a></li>
+      <!-- href에 링크주소값을 #으로 넣어줄 경우: 2가지 의미가 내포됨. 
+      1. anchor가 가지는 기본 속성이 있음 -> 밑줄이 그어지면서 텍스트가 진해지는 속성만 이용하고 싶은 의도
+      2. 이동을 할 것이긴 한데 어느 페이지로 이동할 것인지 컨셉이 확정되지 않았거나 
+         향후에 이동해갈 페이지가 완성이 되면 그때 이동할 것이라는 의미(임의적인 지정 의도!!) -->
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+   </ul>
+</body>
+</html>

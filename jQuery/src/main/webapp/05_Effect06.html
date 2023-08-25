@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트에 투명도 값 변경하기</title>
+	<style>
+		div {
+		  width: 80px;  height: 80px; /* 정사각형의 크기 */
+		  margin: 3px;  float: left; /* 수평정렬이 되도록 함. */
+		}
+		div#red { background: #ff0000; }
+		div#green { background: #00ff00; }
+		div#blue { background: #0000ff; }
+	</style>
+	
+	<script src="./js/jquery-3.6.3.js"></script>
+	<script type="text/javascript">
+	
+	$(function(){
+		//각각의 앨리먼트에 클릭 이벤트를 정의하도록 함.
+		//id선택자로 접근을 할 수 있는데 태그선택자와 함께 좀 더 가독성있게 같이 선택자끼리 결합하여 작성을 해줄 수 있음
+		$('div#red').click(function(){
+			$(this).fadeTo("slow", 0.1);
+		}); //fadeTo: 투명도를 지정할 수 있음 => 0.5반투명, 1일때는 투명도 효과를 주지 않는 것임 (0 ~ 1까지를 지정할 수 있음_사이 값을 지정)
+		
+		$('div#green').click(function(){
+			$(this).fadeTo("slow", 0.5);
+		});
+		
+		$('div#blue').click(function(){
+			$(this).fadeTo("slow", 0.8);
+		});	
+	});
+
+	</script>
+</head>
+<body>
+  <div id="red"></div> 
+  <div id="green"></div> 
+  <div id="blue"></div> 
+</body>
+</html>

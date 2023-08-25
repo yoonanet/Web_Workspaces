@@ -1,0 +1,75 @@
+﻿<!-- CSS 참조 사이트 
+	- https://www.w3.org/TR/CSS : CSS의 공식 홈페이지 (https://www.w3.org/ 웹표준과 관련된 공식 홈페이지이다.)
+	  css표준에 관련된 내용들을 제공해주고 있다.
+	- https://w3schools.com 
+	  : 웹과 관련된 설명들이 자세히 되어져 있고 실습 환경과 실시간적으로 그 실습에 대한 결과도 제공해주고 있는 사이트이다.
+-->
+
+<!-- CSS 크기 단위 (값을 지정할 때의 알아야 할 필수적 내용)
+(지원되는 단위는 cm, mm, inch등도 모든 단위를 지원하고 있다. => 이 단위들은 픽셀과 만나면 모호해짐
+ 이유는 우리는 결과를 브라우저를 통해서 보게 되기 때문이다. 
+ => 따라서 모니터나 스마트폰은 보여지는 화면이 픽셀(모니터상에 해상도, 한 색상을 표현하는 기본 단위)단위라는 개념으로 해서 
+    이미지를 보고 있기 때문에 픽셀이라는 단위를 기반으로 크기를 계산할 수 있는 단위들이 %, em, px가 된다.)
+    
+    하나의 픽셀이 표현할 수 있는 색상의 단위가 흑백일 때 한바이트의 값을 할당해서 0~255가지의 단위를 가지고 흑백 이미지를 표현하게 된다.
+    컬러색상의 경우 RGB로 3바이트가 할당이 되어서 한바이트당 0~255의 데이터를 표현하는 컬러의 값으로 표현을 해주게 된다.
+    
+    흑백 표현법: 0~255 사이의 값으로 데이터 컬러값을 부여
+	컬러 표현법: 픽셀 안에 색상의 표현법(RGB)을 통하여 3byte씩 할당.각 바이트마다 R,G,B를 부여 = 흑백표현처럼 컬러값 부여
+      
+    모니터의 크기는 고정되어 있음. 해상도를 줄이면 번져보이게 됨
+    따라서 해상도가 커질수록 고화질이 되는 것이다.
+    
+	* 퍼센트단위 : % (배수에 기반한 의미) => 3배는 300%
+		- 기본 설정된 크기에서 상대적으로 크기를 지정.
+		- 참고로 100%가 초기에 설정된 크기.
+
+	* 배수단위 : em => 3배는 3em (고정된 크기에 몇배이냐)
+		- 1배=1em=100%, 1.5배=1.5em=150%, 2배=2em=200%
+		- 상대적으로 크기를 지정.
+
+	* 픽셀단위 : px (고정되어 있는 크기)
+		- 절대적으로 크기를 지정.
+		- p태그의 기본 font-size 속성:16px. => 퍼센트단위를 100%로 지정한 것과 동일함. 200%로 지정하면 32px가 되는 것임 => 200%는 2em이됨
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 크기단위</title>
+	
+<style type="text/css">
+	/* %단위 지정 
+	p:nth-child(1) {} p의 첫번째가 됨 => p의 디폴트 크기임. 
+	p:nth-child(2) { font-size:100%; }  100%로 지정했기 때문에 디폴트 크기임 
+	p:nth-child(3) { font-size:150%; }  150%는 1.5배이기 때문에 24px가 됨 
+	p:nth-child(4) { font-size:200%; }  두배의 크기가 됨 
+	p:nth-child(5) { font-size:50%; }  2분의 1크기인 8픽셀이 됨 
+	*/
+	
+	/* em 단위 지정 
+	p:nth-child(1) {} 
+	p:nth-child(2) { font-size:1em; }  
+	p:nth-child(3) { font-size:1.5em; }   
+	p:nth-child(4) { font-size:2em; } 
+	p:nth-child(5) { font-size:0.5em; } */
+	
+	/* px(pixel) 단위 지정 */
+	p:nth-child(1) {} 
+	p:nth-child(2) { font-size:16px; }  
+	p:nth-child(3) { font-size:24px; }   
+	p:nth-child(4) { font-size:32px; } 
+	p:nth-child(5) { font-size:8px; }
+	
+</style>
+
+</head>
+<body>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+</body>
+</html>

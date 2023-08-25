@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 셀 합치기</title>
+</head>
+<body>
+
+	<table border="1">
+		<tr>
+			<td>1행1열</td>
+			<td>1행2열</td>
+		</tr>
+		<tr>
+			<td>2행1열</td>
+			<td>2행2열</td>
+		</tr>
+	</table>
+	
+	<hr /> <!-- 수평선 긋는 태그 -->
+	
+	<h2>열 합치기</h2> <!-- 데이터를 표현할 때 셀과 셀을 합칠 수 있음. => 엑셀에서 자주 사용하는 기능 -->
+	<table border="1">
+		<tr align="center">
+			<td colspan="2">1행1열</td>
+			<!-- colspan: 열과 열을 합쳐줄 때 사용하는 속성으로 합칠 셀 갯수 넣기.(합체 대상 삭제해주기) -->
+			<!-- 합칠 대상 셀에 속성중에 colspan을 이용해서 합쳐주고자 하는 셀의 갯수를 넣어주도록 한다. -->
+			<!-- <td>1행2열</td> 합체할 대상의 셀을 삭제를 해줘야 한다.--> 
+		</tr>
+		<tr>
+			<td>2행1열</td>
+			<td>2행2열</td>
+		</tr>
+	</table>
+	
+	<hr /> 
+	
+	<h2>행 합치기</h2> 
+	<table border="1">
+		<tr>
+			<td rowspan="2">1행1열</td>
+			<!-- 합쳐질 행의 대상이 되어지는 첫번째 태그에 rowspan속성을 부여하고 합칠 행의 갯수를 넣어주도록 한다.
+			     또한, 합칠 대상의 행을 삭제해주도록 한다. -->
+			<td>1행2열</td>
+		</tr>
+		<tr>
+			<!-- <td>2행1열</td> -->
+			<td>2행2열</td>
+		</tr>
+	</table>
+	
+	
+	<hr />
+	
+	<h2>응용</h2> 
+	<table border="1" width="150" height="150">
+		<tr align="center">
+			<td colspan="2">1</td>
+			<!-- <td>2</td> -->
+			<td rowspan="3">3</td>
+		</tr>
+		<tr align="center">
+			<td  rowspan="2">4</td>
+			<td>5</td>
+			<!-- <td>6</td> -->
+		</tr>
+		<tr align="center">
+			<!-- <td>7</td> -->
+			<td>8</td>
+			<!-- <td>9</td> -->
+		</tr>
+	</table>
+
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>marquee Tag</title>
+</head>
+<body>
+
+	<marquee>흐르는 문자열</marquee>
+	<!-- 태그 자체가 동적 애니메이션 효과를 준다. 흘러가듯이 효과를 줌
+	     태그 자체가 동적인 효과를 주는 것은 희박한데 그 희박한 것중에 하나임 -->
+	<marquee behavior="alternate">좌우 이동 문자열</marquee>
+	<!-- alternate속성은 좌우 이동을 하게끔 효과를 준다. 벽에 부딫히면 반대쪽으로 오는 왔다갔다 함 -->
+	<marquee behavior="slide">슬라이드 문자열</marquee>
+	<!-- 한번만 슬라이드해주는 속성이다. 벽에 부딫히면 멈춤 -->
+	
+	<marquee bgcolor="yellow" width="50%" height="300" direction="down" loop="3" scrolldelay="200">영역</marquee>
+	<!-- 백그라운드 색상을 이용해서 영역의 색상을 지정할 수 있다. 
+	% 단위에 대해서는 css에서 자세히 배울 예정, width 속성은 너비로써 원래의 화면에서 반만 지정되는 것이다.
+	                                            현재 브라우저 크기에 따라서 다시 사이즈를 체크해서 영역 너비를 지정한다.
+	height 속성은 높이로 지정한 픽셀의 크기만큼 영역을 높이를 지정해준다. 
+	direction 속성은 애니메이션의 흐름의 방향을 지정해줄 때 사용한다.(왼쪽 오른쪽 위 아래)
+	loop속성은 애니메이션을 몇번 반복하는지를 지정해주는 것이다. 
+	scrolldelay은 애니메이션의 속도를 지정해주는 것이다. (1000은 1초임)
+	
+	원래 애니메이션 효과는 html 태그 안에서는 잘 안준다. => 자바스크립트에서 동적으로 지정하여 사용하도록 함 -->
+	
+	
+	
+</body>
+</html>

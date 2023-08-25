@@ -1,0 +1,77 @@
+﻿#graph {
+    width: 610px;
+    border: 3px solid black;
+}
+
+.bar { /* 5개의 영역이 공통적으로 속성이 적용됨 */
+    width: 10px; height: 50px;
+    background-color: orange;
+    margin: 5px;
+    /* 브라우저에서는 마진의 값을 부여했다고 할 때는 
+    마진이 부여되는 값에서 큰 값만큼만 할당이 되어진다.
+    너무 넓게 간격이 잡히게 되는 것을 방지하기 위해서 제공이 되는 것임. */
+    
+    /* 브라우저에서는 margin 값 부여한 element가 붙어 있을 때 큰 값만큼의 간격만 할당이 된다
+    너무 넓게 잡혀지는 이상한 화면 구성을 피하기 위해서! */
+
+    transition-duration: 5s; /* 애니메이션이 발생하면 5초동안 발생 */
+    
+    /* transition-property 속성(2) = 어떤 속성의 값을 변경해서 애니메이션을 줄 것인지에 대한 setting */
+    transition-property:background-color, width; /* 어떤 속성을 변형할 지 지정 */
+    transition-duration: 1s, 5s;
+    
+    /* property duration function delay */
+    transition:background-color 1s ease, width 5s linear 1s;
+   
+
+}
+
+#graph:hover > .bar { /* 그래프 영역으로 마우스가 올라가면 바를 선택해서 폭을 600픽셀로 보이게 함. */
+    width: 600px;
+}
+
+/* transition-delay 속성 */
+/* transition-timing-function 속성: 시간에 따른 동작에 효과를 주는 속성임 */
+.bar:nth-child(1) { 
+    transition-delay: 0s; /* 언제 시작할 것인지에 대한 값에 셋팅이다.
+                             언제 transition 시작? 0이면 이벤트 발생 순간 바로 */
+    transition-timing-function: linear;  /* 효과를 처음부터 끝까지 일정 속도로 진행*/
+}
+.bar:nth-child(2) { 
+    transition-delay: 1s;
+    transition-timing-function: ease; /* 빠르게 진행하다가 천천히 진행 */
+}
+.bar:nth-child(3) { 
+    transition-delay: 2s;
+    transition-timing-function: ease-in; /* 천천히 시작하다가 일정 시점 이후에 빠르게 */
+}
+.bar:nth-child(4) { 
+    transition-delay: 3s;
+    transition-timing-function: ease-in-out; /* 천천히 - 빠르게 - 천천히 진행 */
+}
+.bar:nth-child(5) { 
+    transition-delay: 4s; /* 4초 후에 애니메이션을 실행함. */
+    transition-timing-function: ease-out; /* 빠르게 진행하다가 천천히 변화시키기 */
+}
+
+/* transition-property 속성(1) */
+#graph:hover > .bar:nth-child(1) {
+    background-color: red;
+    width: 100px;
+}
+#graph:hover > .bar:nth-child(2) { 
+    background-color: blue;
+    width: 300px;
+}
+#graph:hover > .bar:nth-child(3) { 
+    background-color: green;
+    width: 400px;
+}
+#graph:hover > .bar:nth-child(4) { 
+    background-color: yellow;
+    width: 200px;
+}
+#graph:hover > .bar:nth-child(5) { 
+    background-color: pink;
+    width: 400px;
+}

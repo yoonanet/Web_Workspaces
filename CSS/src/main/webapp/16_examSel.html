@@ -1,0 +1,60 @@
+﻿<!-- 속성선택자 + 상태선택자 + 동위선택자(인접, 형제)의 복합 활용 예제 --> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복합 활용 예제</title>
+
+<style type="text/css">
+	input[type=checkbox]:checked + div { height:0px; }
+	/* 체크되는 순간에 선택을 하겠다는 의미이다.(속성선택자에서 상태선택자)
+	   +) 가까운 영역을 의미하게 된다는 의미 => 가시적으로는 결과창에 나타나지 않고 있음(변환코드를 써주지 않으면)
+	   
+	   체크박스를 선택하는 순간에 div가 선택되게끔 설정을 해놓고, 높이 값을 0으로 동작을 해놓았기 때문에
+	   체크를 하는 순간에 높이를 0으로 하면 사라지는데 2초동안 서서히 사라지게 하도록 효과를 부여한 것이다.
+	   
+	   다양한 선택자가 단독으로도 사용이 되어질 수 있지만 서로 결합이 되어져서 얼마든지 선택이 되어지는 영역을
+	   여러 선택자들을 결합시켜서도 활용을 할 수 있다. */
+	
+	div {
+		width:650px;
+		height:300px;
+		background:silver;
+		overflow:hidden;
+		
+		/* 변환 효과를 적용합니다. */
+		-webkit-transition-duration:2s;
+		-ms-transition-duration:2s;
+		-moz-transition-duration:2s;
+		-o-transition-duration:2s;
+		transition-duration:2s; /* 사라지고 나타나는 동작의 시간을 2초동안 행하라는 의미이다. */
+	}
+
+</style>
+
+</head>
+<body>
+	<input type="checkbox" />
+	<div>
+		<h1>Lerem ipsum</h1>
+		<p>Lorem Ipsum is simply dummy text of the printing and
+			typesetting industry. Lorem Ipsum has been the industry's standard
+			dummy text ever since the 1500s, when an unknown printer took a
+			galley of type and scrambled it to make a type specimen book. It has
+			survived not only five centuries, but also the leap into electronic
+			typesetting, remaining essentially unchanged. It was popularised in
+			the 1960s with the release of Letraset sheets containing Lorem Ipsum
+			passages, and more recently with desktop publishing software like
+			Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is
+			simply dummy text of the printing and typesetting industry. Lorem
+			Ipsum has been the industry's standard dummy text ever since the
+			1500s, when an unknown printer took a galley of type and scrambled it
+			to make a type specimen book. It has survived not only five
+			centuries, but also the leap into electronic typesetting, remaining
+			essentially unchanged. It was popularised in the 1960s with the
+			release of Letraset sheets containing Lorem Ipsum passages, and more
+			recently with desktop publishing software like Aldus PageMaker
+			including versions of Lorem Ipsum.</p>
+	</div>
+</body>
+</html>

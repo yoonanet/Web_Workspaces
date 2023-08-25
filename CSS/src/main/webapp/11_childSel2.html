@@ -1,0 +1,43 @@
+﻿<!--
+	* table 태그와 자손선택자 사용시 주의 사항
+		- 웹브라우저가 테이블에 경우에는 자동으로 tbody 태그를 추가함. => 따라서 tbody를 알고 있어야 함.
+		- table 선택자에 스타일 적용할 때는 자식선택자를 사용하지 말자.
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자손선택자 주의사항</title>
+
+<style type="text/css">
+	table > tbody > tr > th { color:red; } 
+	/* 적용이 안되고 있다. 이유는? 
+	브라우저 실행을 하여 개발자 코드를 열어서 Elements를 보면 table border아래에 tbody라는 태그가 추가되어져 있음
+	테이블 안에는 header(제목_th)에 의미와 body(몸체_tr, td), regime(?)로 3가지 갈래로 구성되어져 있다.
+	브라우저가 내부적으로 tbody(안에 tr - td/th로 생성이 되어짐)가 추가되도록 동작을 하고 있음.
+	자식선택자를 통해 선택해갈 때 테이블 밑에는 tbody태그만 있음
+	테이블 밑에 tr을 찾으면 대상이 없어서 적용이 안되고 있는 것이다.
+	따라서 브라우저에서 자동으로 부여해주고 있는 tbody의 이름을 명시해야 한다. */
+</style>
+	
+</head>
+<body>
+
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>주소</th>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>서울시 종로구</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>서울시 마포구</td>
+		</tr>
+	</table>
+
+</body>
+</html>

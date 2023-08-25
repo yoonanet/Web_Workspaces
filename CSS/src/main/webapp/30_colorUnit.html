@@ -1,0 +1,67 @@
+﻿<!--
+* 색상단위
+	- http://www.workwithcolor.com/hsl-color-picker-01.htm(http://www.colorpicker.com) 원하는 색상을 추출하고자 할 때 활용하는 사이트
+	
+	- 키워드를 사용한 색상 적용(red, orange, ...) => 가장 직관적이지만 색상을 지정하기에 한계가 있음 
+	  (테스트 단계에서 확인용으로 사용하는 것이 일반적임)
+	- RGB 색상단위 (실무에서 색상을 지정할 때 활용될 때 => RGB, Hex, HSL)
+		. rgb(red, green, blue) → 0 ~ 255(0x00~0xFF) -> 각각의 색상 하나하나가 한바이트씩 할당이 되기 때문이다.
+		삼원색상을 통해서 모든 색상을 처리하도록 한다.
+		프로그래밍적으로 본다면 메소드를 호출하는 것처럼 제공을 해주고 있다. 
+        . rgba(... , alpha) →  alpha(투명도:0.0(완전투명)~1.0(완전불투명)) alpha 설정 안하면 완전 불투명
+        
+	- Hex(헥사)코드 색상 단위 : #000000 => 헥사데시말로써 RGB를 16진수로 표현한 색상표기법임(f가 15임 그래서 4비트씩 f임)
+	                            각각 RGB로써 0~F까지의 표현방법이 되는 것이다. (# = Hex코드, 00=R, 00=G, 00=B)
+	                             
+	    . 1 byte로 가장 큰 값 = 11111111(10진수로 255) -> 복잡한 과정. 직관적이지 X -> 4bit로 잘라서 표현 = 16진수법(1~9, A~F)
+		. 4bit로 가장 큰 값 = 1111(10진수로 15) -> Hexa 값으로 F = 1byte는 FF로 표현이 가능!
+		. Hex코드 = RGB를 16진수법으로 표현한 것 (한 색당 1byte씩 표현한 것을 4bit씩 끊어서 표현)
+		
+	- HSL 색상단위:hsl(hue(색상), saturation(채도), lightness(명도)) -> 미술에서 정의된 개념으로 색상을 표현해주는 것이다.
+		. saturation, lightness는 %단위
+        . hsla(... , alpha) 투명도의 알파값까지 추가적으로 부여해줄 수 있다.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>색상단위</title>
+
+<style type="text/css">
+	/* 키워드 : 직관적이지만 표현할 수 있는 색상에 한계가 있음 -> 완전불투명으로 색상이 보여지는 것임 */
+	h1 { background-color: red; }
+	h2 { background-color: orange; }
+	h3 { background-color: yellow; }
+	h4 { background-color: green; }
+	h5 { background-color: blue; }
+	h6 { background-color: purple; } 
+	/* 일반적인 웹사이트에서 표현되는 단위와 윈도우즈에서 보여주는 색상(이클립스에서 네모칸을 눌러서 색상을 지정했을 때)에 단위자체가 다름.
+	   따라서 브라우저상에 색상을 추출해서 사용하도록 한다. */
+	
+	/* RGB 색상 단위 : rgb함수를 호출하듯이 색상을 정의할 수 있음 (10진수로 표현됨) */
+	h1 { background-color: rgb(255, 0, 0); } /* 온전한 빨간색 */
+	h2 { background-color: rgba(255, 0, 0, 0.5); } /* 반투명으로 적용하도록 함 */
+	
+	/* Hex 코드 색상 단위 : rgb의 색상 표기 형태를 16진수로 표현하는 것임. 16진수는 4자리씩 잘라서 표현하기 때문에 두자리로 표현이 됨. */
+	h3 { background-color: #87FDB4; }
+	
+	/* HSL 색상 단위 */
+	h4 { background-color: hsl(304, 96%, 54%); }
+	h5 { background-color: hsla(304, 96%, 54%, 0.5); }
+	
+	
+</style>
+
+</head>
+<body>
+
+	<h1>Header-1</h1>
+	<h2>Header-2</h2>
+	<h3>Header-3</h3>
+	<h4>Header-4</h4>
+	<h5>Header-5</h5>
+	<h6>Header-6</h6>
+   
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+* {
+	font-size:16px;
+}
+	
+#title { 
+	font-size:20px; 
+	text-align:center; 
+}
+	
+table {
+	margin:0 auto;
+	border : 1px solid green;
+	border-collapse : collapse;
+	background-color: silver;
+	/* border-collapse:collapse; 테이블의 선이 하나로 보일 수 있도록 하는 속성지정 */
+}
+	
+th {
+	font-size:20px;
+}
+	
+td,th {
+	border : 1px solid green;
+	height : 45px;
+}
+	
+input, select {
+	margin-left: 5px;
+}
+	
+textarea {
+	margin:5px;
+}
+	
+input[type=text] {
+	font-size:16px;
+	width:80px;
+}
+	
+input[type=text]:focus {
+	background-color: rgb(227, 242, 253);
+} 
+	
+#name, input[type=password] {
+	width: 280px;
+}
+	
+label {
+	font-size:18px;
+}
+	
+#btn {
+	text-align:center;
+}
+	

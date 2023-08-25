@@ -1,0 +1,13 @@
+127.0.0.1 - - [13/Mar/2023:21:26:55 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:26:55 +0900] "GET /JavaScript/quiz/3.8_quiz.html HTTP/1.1" 200 3239
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:26:55 +0900] "GET /JavaScript/quiz/3.8_quiz.css HTTP/1.1" 200 710
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:26:55 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:27:54 +0900] "GET /JavaScript/quiz/3.8_quiz.css HTTP/1.1" 200 727
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:27:54 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:27:58 +0900] "GET /JavaScript/quiz/3.8_quiz.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:27:58 +0900] "GET /JavaScript/quiz/3.8_quiz.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:27:58 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:28:42 +0900] "GET /JavaScript/quiz/Quiz_sol.html HTTP/1.1" 200 3604
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:28:42 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:28:49 +0900] "GET /JavaScript/quiz/3.8_quiz.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2023:21:28:49 +0900] "GET /JavaScript/quiz/3.8_quiz.css HTTP/1.1" 304 -

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>목록 중첩 태그</title> <!-- 리스트를 중첩해서 사용하는 경우가 일반적이다. -->
+</head>
+<body>
+	
+	<ul>
+		<li>HTML</li> <!-- 유의) 목록을 중첩할 때는 li태그를 먼저 써주고 이후에 중첩할 ul이든 ol을 써주면 됨!! -->
+			<ol>
+				<li><a href="#">b tag</a></li>
+				<li>i tag</li>
+				<li>sub tag</li>
+			</ol>
+		
+		<li>CSS</li><!-- 특이한사항) ul안에 리스트에 자식의 ul을 구성하게 되면 빈 동그라미 특수문자로 달리 구분지어서 출력이 된다. -->
+			<ul>
+				<li>Selector</li> <!-- CSS에서의 선택자 -->
+				<li>Style</li>
+				<li>3D Transform</li>		
+			</ul>
+		
+	</ul>
+
+
+<!-- 네이버 html만 구성된 사항을 보면 메뉴들이 ui로 구성하고 있다는 것을 알 수 있다.
+     즉, 웹페이지에서 메뉴들은 ui(a태그로 구성함_ 메뉴 클릭시 페이지 이동을 할 수 있도록 함)로 구성이 된다는 것을 알고 있으면 되고 
+     그렇게 구성된 ui를 css로 편집을 하여 수평 정렬이 되게끔 한다고 생각하면 된다. -->	
+</body>
+</html>
+

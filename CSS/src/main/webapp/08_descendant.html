@@ -1,0 +1,54 @@
+﻿<!--
+	* 후손선택자
+		: 특정한 태그 아래에 있는 후손을 선택할 때 사용하는 선택자.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>후손선택자</title>
+
+<style type="text/css">
+	/* div안에 h1이라는 후손 선택자 안에 접근을 하고 싶다고 한다면
+	   후손은 하나의 여백으로 남겨두면서 후손선택자를 지정해주도록 한다. (즉, 후손은 여백을 통해 지정함.) */
+	#header h1 { color:red; }
+	/* 주의) header의 영역은 범위를 기준으로 후손의 h1을 선택한 것이다.
+	         후손은 h1을 지정했는데 영역안에 h1이 한개만이 아님
+	          => !!후손은 기준이 되는 대상 안에 있는 모든 요소가 선택 대상이 된다!!
+	               따라서 h1이 전부 대상으로 잡히게 되어 스타일이 적용됨 */
+	
+	#section h1 { color:blue; }/* section안에 있는 모든 h1이 선택대상이 되어질 것임 */
+	
+	
+</style>
+
+</head>
+<body>
+
+	<div id="header">
+		<h1 class="title">Header</h1>
+		<div id="nav">
+			<h1>Navigation</h1>
+			<h3>CSS3</h3>
+		</div>
+	</div>
+
+	<div id="section">
+		<h1 class="title">Aside</h1>
+		<p>Contrary to popular belief, Lorem Ipsum is not simply random
+			text. It has roots in a piece of classical Latin literature from 45
+			BC, making it over 2000 years old. Richard McClintock, a Latin
+			professor at Hampden-Sydney College in Virginia, looked up one of the
+			more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+			and going through the cites of the word in classical literature,
+			discovered the undoubtable source. Lorem Ipsum comes from sections
+			1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
+			of Good and Evil) by Cicero, written in 45 BC. This book is a
+			treatise on the theory of ethics, very popular during the
+			Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+			amet..", comes from a line in section 1.10.32.</p>
+	</div>
+
+</body>
+</html>

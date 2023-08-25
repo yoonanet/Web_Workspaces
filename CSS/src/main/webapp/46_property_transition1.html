@@ -1,0 +1,56 @@
+﻿<!--
+	* 변형 속성 (ex. 체크박스에 체크 시 paragraph를 천천히 사라지게 하는 기능)
+		- 애니메이션을 적용할 때 사용하는 기능. + 애니메이션 동작 시간을 셋팅하는 것 
+		- 종류 (애니메이션의 시간과 관련된 효과를 줄 수 있는 속성)
+			. transition : 모든 transition 속성을 한 번에 적용. 
+			. transition-delay : 이벤트 발생 후 몇 초 후에 재생할 지 지정.
+			. transition-duration : 몇 초 동안 재생할 지 지정.
+			. transition-property : 어떤 속성을 변형할 지 지정.
+			. transition-timing-function : 수치 변형 함수를 지정. (시간에 다양성을 주면서 애니메이션의 효과를 부여)
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 변형 속성</title>
+    
+    <style type="text/css">
+ 		.box {
+ 			width:100px; height:100px;
+ 			background-color:orange;
+ 			
+ 			-ms-transition-duration:2s;  /* ms = Microsoft(edge, internet explorer) */
+ 			-moz-transition-duration:2s; /* moz = mozilla(firefox) */
+ 			-webkit-transition-duration:2s; /* webkit = 구글, 사파리 */
+ 			-o-transition-duration:2s; /* o = Opera 유럽에서 사용빈도수가 있는 오페라 브라우저 */
+ 			transition-duration:2s; 
+ 			/* css3에서 추가된 속성이다.
+ 			기능으로 표준이 정의가 된 것은 먼저 서비스를 해주고 있는 웹브라우저도 있고 나중에 표준이 될 수 있다. 브라우저마다 지원시기가 다를 수 있음
+ 			!!표준으로 지정되기 전에 속성의 이름을 정의한다면 어떤 브라우저에서 지원이 되는지 접두어를 통해서 보여주고 있음!!
+ 			=> 표준으로 지정되기 전에는 표준의 이름이 없으니까 자신들의 접두어만을 붙여서 속성의 이름으로 제공을 해준다는 것임
+ 			
+ 			나중에 표준으로 지정이 된다면 앞에 붙였던 접두어를 빼서 규정하게 된다.
+ 			그렇게 되면 여러가지 문제점이 발생(나중에 표준이 생겼으니 코드를 표준으로 다 변경해야하는 문제 발생.)!! 
+ 			=> 표준이 되면서 접두어를 빼게 되면 이전버전에 호환성 문제가 발생하게 된다.
+ 			따라서 접두어를 넣은 속성들을 전부 다 지정을 해주게 되면 모든 브라우저에서 안전하게 실행할 수 있게된다.
+ 			(접두어가 붙여서 작성되어 있다면 = 나중에 표준이 확정이 되어도 모든 브라우저에서 코드를 수정할 필요가 없이 적용이 되게끔 설정한 것) */
+
+ 		}
+ 		
+ 		.box:hover { /* 마우스가 box클래스 영역에 왔을 때 선택되는 선택자가 :hover선택자이다. */
+ 			width:200px; height:200px;
+ 		} /* 너무 갑자기 커짐 -> 이 크기가 커지는 부분에서 애니메이션 효과를 추가할 예정 */
+ 		
+ 		
+ 		.box:active { /* 2초동안 클릭했을 때 빨간색으로 변함 */
+			background-color:red;
+		}
+    </style>
+    
+</head>
+<body>
+
+	<div class="box"></div>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 논문을 포커스로 서비스하기 위한 기술이라는 것을 확인할 수 있다. -->
+<title>글자 형태 태그</title>
+</head>
+<body>
+
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
+	<b>Lorem Ipsum</b> is <i>simply dummy text</i> of the <small>printing and typesetting</small> industry.<br />
+	<!-- b태그는 지정한 글자를 bold체로 적용해준다. / i태그는 지정한 글자를 italic체(기울임꼴)로 적용해준다. 
+	     small태그는 기본 크기 대비 텍스트를 작게 적용해준다.-->
+	     
+	Lorem Ipsum<sup>주1)</sup> is simply dummy text(H<sub>2O</sub>) of the <ins>printing and typesetting industry</ins>.<br />
+	<!-- sup태그를 이용해서 추가적인 설명을 해줄 때 논문에선 텍스트 위에 작은 글씨로 표현을 해준다. -->
+	<!-- sub태그는 글자 아래에 작은 글씨로 표현을 해준다. -->
+	<!-- ins태그는 글자 아래에 밑줄을 그어준다. ins는 강조의 의미를 담고 싶을 때 사용이 된다. -->
+	
+	Lorem Ipsum is <u>simply dummy text</u> of the <del>printing and typesetting</del> industry.<br />
+	<!-- u는 언더라인의 약자로 u이다. 단순히 밑줄을 그어달라는 의미만 내포되어 있음 -->
+	<!-- ins나 u는 보여지는 것은 똑같다. 이 기능들의 최종 목적은 시각장애인들을 위해 메시지 전달의 의도가 담겨 있다.
+	     밑줄의 모양에 따라서 이게 강조의 의미인지 그냥 밑줄이 되어있는지를 알려줄 수 있다.
+	     또한, 읽어줄 때도 강약을 달리하여 알려주는 것에 의도를 잡고있다. 하지만 의미 구분을 염두해주되 적절하게 태그를 활용하면 된다. -->
+	<!-- del태그는 취소선의 표시 기호를 표현 해준다. -->
+	
+	<hr /> 
+	안녕하세요. 전화번호는 <nobr>010-1234-5678</nobr>입니다.
+	<!-- 크기가 작아지더라도 줄어들지 않게 고정을 시키고 싶다면 nobr태그로 감싸주도록 한다.
+	     중간에 br을 하지 않겠다는 의미로 간격이 좁을 때는 감싸준 문자열 전체가 같이 움직인다. -->
+	
+	
+	
+</body>
+</html>

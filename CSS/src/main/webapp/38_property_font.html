@@ -1,0 +1,106 @@
+﻿<!--
+	* 폰트 속성 : 글자와 관련된 스타일 속성.
+		1. font-size 속성
+			- 글자의 크기를 지정하는 스타일 속성.
+			    참고) h1태그의 기본크기:32px, p태그의 기본크기:16px
+		2. font-family 속성
+			- 폰트를 지정하는 스타일 속성.
+			- 일반적으로 한 단어로 이루어진 폰트는 따옴표를 사용하지 않음. 
+				하지만 !!두 단어 이상으로 이루어진 단어는 따옴표를 반드시 적용.!!
+		3. font-style 속성
+			- 폰트의 기울기 지정하는 스타일 속성.
+			- 키워드 : italic
+		4. font-weight 속성
+			- 폰트의 두께를 지정하는 스타일 속성.
+			- 키워드:700/800/900/bold...
+			- 일반 폰트 두께:400, 두꺼운 폰트 두께:700
+			- 두께를 지원하지 않는 폰트는 font-weight 속성을 사용해 두께를 조절 할 수 없다.
+		5. line-height 속성
+			- 글자의 높이를 지정.
+			- 글자를 수직 중앙 정렬할 때 사용.
+		6. text-align 속성
+			- 글자의 정렬과 관련된 스타일 속성.
+		7. text-decoration 속성 => 앵커태그에서 none으로 지정 시 밑줄을 없애줌. 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폰트 속성</title>
+
+<style type="text/css">
+	.a { font-size:32px; }
+	.b { font-size:2em; }
+	.c { font-size:large; }
+	.d { font-size:small; }
+	
+	.font_arial { font-family: Arial, sans-serif; }
+	/* 브라우저에서는 글꼴의 이름을 Serif나 Sans-serif로 기본적으로 가지게 됨 => 이는 한글 전용 글꼴이다.
+	   지금 현재 한글 운영체제가 기본적으로 깔려져 있음. 운영체제별 문자열들은 깨지지 않고 브라우저상에서 폰트의 형태로 보여져야 함
+	   그 나라의 폰트가 운영체제안에 설치가 되어 깔리는 형태이다.
+	   나라별로 글꼴의 이름들은 다 다를 수밖에 없다. 그래서 나라가 다르더라도 디폴트의 이름을 고정을 시켜놓으면
+	   그 디폴트 이름에 어떤 글꼴을 매핑시키느냐에서 달라지는 것이다.
+	   그래서 우리나라의 크롬브라우저는 Serif는 바탕, Sans-serif는 맑은 고딕으로 매핑을 시키고 있다.
+	   
+	   => 지금의 지정한 부분을 보게되면 Arial으로 글씨체를 지정을 하는데
+	      이 글씨체가 없을 경우를 대비해서 브라우저가 지정해놓고 있는 디폴트의 이름을 명시를 시켜놓도록 한다. 
+	      즉, 첫번째의 폰트가 없을 때 두번째로 지정한 글꼴을 바라보게 되는 것이다. */
+	.font_roman { font-family: 'Times New Roman', serif; } /* 내PC에 첫번째 글꼴이 없다면 두번째에 매핑된 글꼴로 출력. */
+	
+	.font_italic { font-style:italic; }
+	.font_big { font-size:2em; } /* 기본글꼴의 사이즈에서 두배의 사이즈로 지정 */
+	.font_bold { font-weight:bold; } /* 진한글씨체를 지정하려면 font-weight로 지정하도록 해야한다. */
+	
+	.font_center { text-align:center; } /* 가로폭에서 중앙정렬됨 */
+	
+	.font_right { text-align:right; }
+	
+	.button {
+		width:150px; height:70px;
+		background-color: #FF6A00; /* 헥사데시말 방법으로 컬러값을 지정 */
+		border:10px solid #FFFFFF;
+		box-shadow:5px 5px 5px #A9A9A9; /* 바깥쪽 그림자를 지정함 */
+		border-radius:30px;
+		
+		/* height같은 경우 중앙정렬의 속성을 제공하고 있지 않다. */
+	}
+	
+	.button > a { /* 자손선택자로 버튼 바로아래 있는 앵커를 선택 */
+		text-decoration:none; /* 밑줄부터 없애줌. */
+		line-height:70px; /* line-height는 글자 높이의 크기를 잡아주는 속성이다. 
+		                     부모쪽의 높이와 동일하게 잡아주면 가운데 정렬하는 효과가 발생된다. 
+		                     !!수직에서의 height의 정렬에서 많이 사용되는 속성임!! */
+	}
+	
+</style>
+
+</head>
+<body>
+	<h1 class="font_arial">Lorem ipsum</h1>
+	<p class="font_roman">Lorem ipsum</p>
+	<p class="a">Lorem ipsum</p>
+	<p class="b">Lorem ipsum</p>
+	<p class="c">Lorem ipsum</p>
+	<p class="d">Lorem ipsum</p>
+
+	<p class="font_italic font_big font_bold">Lorem ipsum dolor amet</p> 
+	<!-- 클래스라는 속성에 여러 이름을 등록하여 동시에 다양한 속성을 지정하도록 한다. -->
+
+	<hr>
+	
+	<!-- line-height 속성 실습       -->
+	<div class="button font_center">
+		<a href="#" class="font_big font_italic font_bold font_center">Click</a>
+	</div>
+
+	<hr>
+
+	<h1 class="font_center">Lorem ipsum</h1>
+	<p class="font_right">2021. 12. 11</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+	<span class="font_center">Lorem ipsum</span>
+
+</body>
+</html>

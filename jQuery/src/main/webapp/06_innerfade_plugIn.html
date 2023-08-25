@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!-- https://gist.github.com/coolniikou/665255 -->
+<!-- http://plugins.jquery.com/ -->
+<!-- https://github.com/jquery/plugins.jquery.com -->
+<!-- http://jquerylist.com -->
+<!-- http://datatables.net -->
+
+<head>
+<meta charset="UTF-8">
+<title>Plug In</title>
+<style>
+	* { margin: 0px; padding: 0px; } /* 여백을 주지 않도록 css 초기값을 구성. */
+	ul { list-style:none; } /* ul은 번호가 없는 특수문자로 목록을 보여주는데 그 목록의 특수문자를 보이지 않도록 지정 */
+	img { width: 500px; height: 350px; }
+</style>
+
+<script src="./js/jquery-3.6.3.js"></script>
+<script src="./js/jquery.innerfade.js"></script> <!-- 현재 다운로드 받은 라이브러리를 import해줌 -->
+
+<script>
+/* Plug In이란? */
+//	: 개발자가 jQuery 자체를 확장하여 사용할 수 있도록 제공해주는 jQuery 라이브러리의 한 형태. (기능 공유처럼 생각하면 됨)
+/*   링크에 들어가보면 코드가 잔뜩 작성되어 있음. 이 코드 Download ZIP으로 저장하여 첫번째 파일을 js에 저장.
+     개발자가 jQuery처럼 기능을 구현해서 라이브러리 형태로 제공을 해주고있음. 그 라이브러리를 내 소스코드에 적용을 해서 사용할 수 있는 것임.
+     여기서 적용하는 방법이 플러그 인이라고 지칭을 해주고 있는 것이다.
+     => 라이브러리 안에 어떻게 사용을 하면 되는지의 인폼을 제공하고 있기 때문에 라이브러리 코드를 다 숙지할 필요 없음. */
+	
+     $(function(){
+    	 $('#inner-fade').innerfade({ //innerfade메소드는 객체를 전달해주면 됨.
+    		 //어떤 속성들이 정의가 되어져 있는지 가시적으로 확인하기 위해서 명시한 것임.
+    		 'animationtype':'fade',
+             'speed':'normal',
+             'type':'sequence',
+             'timeout':2000,
+             'containerheight':'auto',
+             'runningclass':'innerfade',
+             'children':null,
+ 			'wait':2000
+    	 }); //이미지를 하나하나씩 한 영역에서 보였다 사라지게끔 하는 효과를 제공해주게끔 메서드가 구현이 되어져서 제공을 해주는 것이다.
+    	     //jQuery 기능은 한계가 있기 때문에 다른 개발자들이 자바스크립트로 구현하여 릴리즈를 해주고 있는 것이다.
+    	     //이러한 기능들을 플러그인이라고 칭한다!!
+     });
+
+</script>
+    
+</head>
+<body>
+    <ul id="inner-fade">
+        <li><img src="img/Desert.jpg" /></li> 
+        <!-- img는 인라인 형태라 붙어서 나오는 형태이지만 
+             li의 태그로 감싸주면서 이미지가 리스트처럼 정렬이되어 브라우저 화면에 보여지고 있음 -->
+        <li><img src="img/Hydrangeas.jpg" /></li>
+        <li><img src="img/Chrysanthemum.jpg" /></li>
+        <li><img src="img/Koala.jpg" /></li>
+        <li><img src="img/Penguins.jpg" /></li>
+        <li><img src="img/Tulips.jpg" /></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>형태구조선택자</title>
+
+<style type="text/css">
+	/* body 태그의 자손중 첫번째로 등장하는 모든 형태의 태그를 선택하고자할 때 지금과 같은 방법으로 선택자를 지정해주도록 한다. */
+	body > *:first-of-type { color:red; }
+	/* body의 자식 -> 전체선택자로 전체를 지정해주고, 첫번째로 등장하는 태그들을 선택하게 된다.
+	   본문영역에서 처음 등장하는 태그들을 의미하는 것이다. 
+	   h1, h2, h3, h4, h5, h6태그들이 처음 등장 요소들이 선택이 되어져서 스타일이 적용됨. */
+	
+</style>
+
+</head>
+<body> <!-- 동일레벨에 있는 형제관계 혹은 동위관계로 본문영역이 구성되어 있음 -->
+	<h1>Header-1</h1>
+	<h2>Header-2</h2>
+	<h2>Header-2</h2>
+	<h3>Header-3</h3>
+	<h4>Header-4</h4>
+	<h5>Header-5</h5>
+	<h6>Header-6</h6>
+	<h3>Header-3</h3>
+</body>
+</html>

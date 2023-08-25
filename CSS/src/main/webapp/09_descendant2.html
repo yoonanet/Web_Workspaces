@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>후손선택자 관련 주의 사항</title>
+<style type="text/css">
+	/* #header h1, h2 { color: red; }  */
+	#header h1, #header h2 { color: red; }
+	
+</style>
+<!-- 스타일시트 속성을 적용하고자 할 때 header안에 h1과 h2를 모두 선택하고자하는 의도라면
+     즉 두 개 이상의 태그를 지정하고자 해서 콤마를 이용해서 선택을 하게 된다면
+     이때는 헤더 영역 안에 h1은 올바르게 선택이 되어지지만 h2는 태그 선택자로 인식이 되어진다.
+    !! 콤마로 두 개이상을 지정을 해주고자 한다면 각각 별도로 부모를 지정해주면서 접근을 해줘야 한다!! -->
+</head>
+<body>
+	<div id="header">
+		<h1 class="title">Header 1</h1>
+		<h2>Header 2</h2>
+		<div id="nav">
+			<h1>Navigation</h1>
+			<h3>CSS3</h3>
+		</div>
+	</div>
+
+	<div id="section">
+		<h1 class="title">Aside</h1>
+		<h2>Header 3</h2>
+		<p>Contrary to popular belief, Lorem Ipsum is not simply random
+			text. It has roots in a piece of classical Latin literature from 45
+			BC, making it over 2000 years old. Richard McClintock, a Latin
+			professor at Hampden-Sydney College in Virginia, looked up one of the
+			more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+			and going through the cites of the word in classical literature,
+			discovered the undoubtable source. Lorem Ipsum comes from sections
+			1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
+			of Good and Evil) by Cicero, written in 45 BC. This book is a
+			treatise on the theory of ethics, very popular during the
+			Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+			amet..", comes from a line in section 1.10.32.</p>
+	</div>
+</body>
+</html>

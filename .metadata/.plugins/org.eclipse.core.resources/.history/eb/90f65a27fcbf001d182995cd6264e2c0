@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>페이딩</title>
+	<style>
+	   p { position:relative; width:400px; height:90px; } 
+	   /* static으로 선언되어서 default로 동작되는 것과 동일, 위치값을 별도로 지정해주고 있지 않음 */
+	   div { 
+	        position:absolute; width:400px; height:65px;  
+	        /* position:absolute => 절대좌표위치값  
+	           : 자신의 부모나 바로 직전에 앨리먼트가 relative로 셋팅 되어 있으면 그 지정된 요소가 기준점이 됨. */
+	        font-size:36px; text-align:center;  
+	        color:yellow; background:red; 
+	        padding-top:25px;  
+	        top:0; left:0; display:none; } 
+	        /* 영역의 값을 부모의 현재 위치 값으로 준 것임 => p태그 영역과 동일한 영역을 사용하겠다는 것임(겹쳐진 상태)
+	           display속성을 none으로 줬기 때문에 현재는 브라우저상에 보이지 않게 설정해 놓음. */
+	   span { display:none; } /* 텍스트가 보여지지 않음. */
+	</style>
+	
+	<script src="./js/jquery-3.6.3.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//천천히 보여지게끔 구현
+			$('#fadeIn').click(function(){ //이벤트처리를 위한 콜백함수를 정의해주도록 함
+				$('div').fadeIn(3000, function(){ //div가 3초동안 다 보여졌으면
+					$('span').fadeIn(100); //span태그를 0.1초만에 보여지도록 함
+				});//fadeIn: 천천히 보여주게하는 효과의 메소드 
+				   //        첫번째 매개변수에는 시간을 지정(초단위), 두번째 매개변수는 3초동안 보여지는 기능을 정의함.
+			});
+			
+			//천천히 사라지게끔 구현
+			$('#fadeOut').click(function(){ 
+				$('div').fadeOut(3000, function(){ //3초동안 사라지게끔 한다.
+					$('span').fadeIn(100); //div가 숨겨지는 것이기 때문에 span태그가 fadeIn되더라도 보여지지 않는 것임
+				}); //fadeOut: 천천히 사라지게 하는 효과의 메소드
+			});
+			
+			$('#fadeToggle').click(function(){ 
+				$('div').fadeToggle(3000, function(){ 
+					$('span').fadeIn(100); 
+				}); //버튼이 토글의 형태로 동작이 되어짐. 위에 설정된 코드가 fadeToggle로 한 메서드를 통해 부여할 수 있는 것임!!
+			});
+		});
+
+	
+	</script>
+</head>
+<body>
+	<p> <!-- 문단 구성 -->
+	  불투명도를 점점 높여서 보이도록 한다. 
+	  speed를 fast, normal, slow 또는 0이상의 숫자(밀리세컨드 단위)를 준다.
+	  에니메이션이 끝난 후에 실행할 함수를 지정한다. 
+	</p>
+	<div><span> S U C C E S S ! </span></div> 
+	<button id="fadeIn"> fadeIn </button>  
+	<button id="fadeOut"> fadeOut </button> 
+	<button id="fadeToggle"> fadeToggle </button> 
+</body>
+</html>

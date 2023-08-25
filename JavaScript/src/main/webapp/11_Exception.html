@@ -1,0 +1,97 @@
+<!--
+* JavaScript에서의 예외 처리
+	- 정의:프로그램이 실행되는 동안 문제가 발생하면 프로그램이 자동으로 
+			중단된다. 이럴 때 프로그램이 대처할 수 있게 처리하는 것.
+		cf) error: 프로그래밍 언어의 문법적인 오류
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예외처리</title>
+<script type="text/javascript">
+  
+/* 1. 기본 예외 처리 
+//나눗셈에서 0으로 나눴을 때 수학적으로 오류이기 때문에 자바에서도 에러를 내주면서 강제종료함
+//if의 목적은 조건을 체크하기 위한 목적이기 때문에 예외를 처리하기에는 가시적으로 와닿지 않고, 한계가 있음
+	
+	function whenClick(e) { //크롬,사파리,엣지등은 이벤트를 발생하면서 함수를 호출하면서 입력으로 event정보를 전달할 시 이벤트를 실행해줌.
+	//하지만 익스플로러 8이하 버전은 window의 event필드 안에 보관하고 있음 
+	//따라서 모든 브라우저에서 이벤트를 사용하기 위해서 아래의 코드를 활용하도록 한다. (short-circuit-evaluation)
+		var event = e || window.event;
+	
+		var willAlert = '';
+		willAlert += 'clientX: '+ event.clientX+'\n'; //마우스가 클릭할 때마다 clientX => 마우스의 x좌표, clientY => 마우스의 y좌표를 입력으로 전달해주고 있었음
+		willAlert += 'clientY: '+ event.clientY+'\n';
+		alert(willAlert); // h1의 영역 클릭 시 클릭한 X, Y 위치 좌표 출력
+	}
+*/
+/* 2. 고급 예외 처리 (예외처리에 관련하여 자바스크립트가 정의해주고 있는 정의 방법을 살펴봄)
+//    자바스크립트가 제공해주는 예외처리와 관련한 문법구문
+
+// 예제1.
+	//예외처리구문이 자바와 같음
+	try {
+		//일부로 에러 발생: willExcept변수를 선언한 적이 없는데 객체처럼 byebye메소드를 호출하려고 함.
+		willExcept.byebye(); 
+	} catch(exception) { //자바스크립트는 자료형이 var한가지 이기 때문에 변수이름만 적어주면 됐음 => exception으로 예외 관련 객체를 전달함.
+		alert('예외가 발생');
+	} finally { //옵션사항 => 예외가 발생을 하던 하지 않던, try catch문을 벗어나기 직전에 반드시 실행하도록 함
+		alert('예외 처리 수행 끝.');
+	}
+
+
+// 예제2:예외 객체
+//    - IE에서 확인.
+//    - 예외 객체 속성 
+//        . message : 예외메세지
+//        . description : 예외 설명
+//        . name : 예외 이름
+//	최신버전 브라우저에서는 예외 객체 속성에 대한 정보같이 세세하게 서포트하지 않음.
+
+	try {
+		//자바스크립트에서의 배열의 최대 크기: 4,294,967,295
+		var array = new Array(9999999999);
+	} catch(exception) { 
+		var output = '';
+		for(var i in exception) { //예외와 관련된 정보들을 하나하나씩 꺼내와서 변수에 누적하여 출력
+			output += i + ' : ' + exception[i] + '\n'; 
+		}
+		alert('예외가 발생');
+	} finally { 
+		alert('예외 처리 수행 끝.');
+	} //인터넷 익스플로러에서만 확인을 할 수 있음. 지금 현재 우리 운영체제가 익스플로러가 설치가 안되어져 있어서 확인 불가.
+	// 큰 비중을 가져가진 않음 -> 그래서 현재 브라우저들은 정보 제공해주는 세세한 기능꺼지 제공해주지 않음
+
+// 예제3: 예외 강제 발생 => 사용자가 정의한 예외를 강제로 발생시키는 구문을 의미한다. ex) 나이에 음수값 입력시 사용자가 예외를 발생시킴
+
+	function divide(alpha, beta){
+		if(beta == 0) {
+			//만약에 나눌 값이 0이면 사용자 정의로 예외를 발생시키려고 함. => throw키워드를 이용해서 예외를 발생시키도록 한다.
+			throw 'DivideByZeroException'; //자바스크립트에서는 메시지를 넣어줌.
+		}
+		return alpha / beta; //전달되어진 beta값이 0인 순간 예외를 발생해주면서 강제 종료를 함.
+	}
+	
+	try { //try catch로 감싸주도록 함
+		divide(10, 0); //자바에서는 내부에서 예외 발생 가능성이 있으면 예외를 처리하기위한 try/catch문으로 예외이름을 명시해주었어야함 
+		alert('성공.');
+	} catch(e) {
+		alert('catch');
+	}
+	*/	
+
+	
+	//css같은 경우, 하나의 html파일에 css와 함께 관리가 되면 코드가 상당히 길어져서 분리하여 관리하도록 하는 것이 효율적이였다.
+	//javaScript도 외부파일의 형식으로 별도로 파일을 만들어서 스크립트 코드를 작성하고 포함시키는 형태로 소스코드를 관리하는 것이 효율적임.
+
+</script>
+  
+</head>
+<body>
+
+	<h1 onclick="whenClick(event)">Click</h1>
+	
+</body>
+</html>

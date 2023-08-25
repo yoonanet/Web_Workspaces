@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>label 태그</title>
+</head>
+<body>
+	<!-- 입력 양식이기 때문에 form태그로 감싸줘야 한다.
+	     입력 양식 태그들은 form태그 안으로 범위를 잡아주면서 reset과 submit의 기능을 제공해주는 것이다. -->
+
+	<form action="">
+		<label>이름:</label> 
+		<!-- label: 어떤 데이터를 입력할지의 표시용으로 제공해주는 태그이다. 그래서 label은 별도의 태그로 제공을 해주고 있음 -->
+		<input type="text" />
+	</form>
+	
+	<hr />
+	
+	<!-- .어떠한 input 태그를 설명하고 있는지 표시해줘야 함.
+	     . input 태그에 id속성을 입력하고 lable 태그에 for 속성을 입력
+	     레이블을 클릭했을 때 포커스가 맞아들어가게끔 기능으로써 제공을 해주고 있음 -->
+	<form action="">
+		<label for="name">이름:</label> 
+		<!-- lable에 for속성에 연결 태그를 id로 넣어주게 되면 레이블을 클릭했을 때 id에 부여한 부분이 포커스를 둘 수 있음 -->
+		<!-- 모든 태그마다 id라는 속성을 사용할 수 있고, id라는 속성은 고유 이름을 부여하는 것이다. -->
+		<input type="text" id="name"/>
+	</form>
+
+</body>
+</html>

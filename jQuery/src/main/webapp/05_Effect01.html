@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 사라지게 하기</title>
+<style>
+	span{ display:none; } /* display속성을 통해 span태그를 화면상에서 사라지게 함. */
+</style>
+
+<script src="./js/jquery-3.6.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button:eq(0)').click(function(){ //:eq(0) - 첫번째 button이 선택되게 됨.
+			$('span:first').show(); //.show(): 화면상에 나타나주게 하는 기능임
+			//:first - 첫번째 span태그를 선택
+		}); //첫번째 버튼이 클릭되면 span태그가 화면상에 보임
+		
+		$('button:eq(1)').click(function(){ //두번째 버튼을 클릭하면 안에 함수가 실행됨.
+			$('span:first').hide(); //.hide(): 화면상에 사라지게 해주는 기능임
+		}); //두번째 버튼이 클릭되면 span태그가 화면상에서 사라짐
+		//위처럼 코드를 구성하면 앨리먼트를 사라지게하고 생기게 하는 동작을 동적으로 구성할 수 있다. => 하지만 너무 딱딱하게 구성됨.
+		
+		$('button:eq(2)').click(function(){ //세번째 버튼을 클릭하면 안에 함수가 실행됨.
+			$('span:last').show('slow', function(){ //:last - 마지막 span태그를 선택	
+				$(this).css('background', 'yellow');
+			}); //show의 오버로딩된 메소드: 첫번째의 매개변수는 세 가지의 값을 통해 천천히 할지(slow), nomal하게 할지, 빠르게 할지(fast)에 대한 속성을 지정하도록 함.
+			    //                          두번째 매개변수는 그 속성값에 따라 지정할 콜백 함수를 넣어주도록 한다.
+		}); //세번째 버튼을 클릭하면 span태그가 천천히 css속성이 적용되어 화면상에 보임
+		
+		$('button:eq(3)').click(function(){ //네번째 버튼을 클릭하면 안에 함수가 실행됨.
+			$('span:last').hide('slow', function(){ 
+				$(this).css('background', '');
+			}); //네번째 버튼을 클릭하면 span태그가 천천히 css속성이 없은채로 화면상에 보임
+		});
+		
+	});
+		
+</script>
+	
+</head>
+<body>
+	<button>Show It</button>
+	<button>Hide It</button>
+	<span>안녕하세요.</span>
+	<br>
+	<button>Show It slow</button>
+	<button>Hide It slow</button>
+	<span>반갑습니다.</span>
+</body>
+</html>

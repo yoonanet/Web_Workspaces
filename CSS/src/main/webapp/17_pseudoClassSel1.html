@@ -1,0 +1,61 @@
+﻿<!-- pseudo => 짝퉁의 의미를 담고 있음
+	* 일반구조선택자 (수도선택자)
+		- CSS3부터 지원하는 선택자.
+		- 일반적으로 자손선택자(>기호)와 병행해서 많이 사용.
+		- 종 류 (선택자의 이름)
+			. :first-child 
+				→ 첫번째에 위치하는 자손을 선택(CSS2.1 지원)_먼저 한 버전 빠르게 지원이 된 것임
+			. :last-child
+				→ 마지막에 위치하는 자손을 선택.
+			. :nth-child(n)
+				→ 앞에서 n번째 있는 자손을 선택.
+			. :nth-last-child(n)
+				→ 뒤에서 n번째 있는 자손을 선택.
+ -->
+ <!-- 메인의 메뉴를 어떤식으로 꾸며줄 수 있는지에 대한 실습 -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일반구조선택자</title>
+
+<style type="text/css">
+	ul { overflow:hidden; } 
+	/* 레이아웃 구성에서 서브메뉴와 콘텐츠를 감쌀 때 수평정렬할 때 사용을 했었는데 
+	   수평정렬에서 모태(부모)가 되는 속성으로 줬었음.
+	   그때 서브메뉴와 콘텐츠 자식한테 float:left의 속성을 줬었음 => 수평정렬의 효과를 주고 있다. */
+	
+	li {
+		list-style:none; /* 특수문자 자체를 담지 말라는 의미이다. */
+		float:left;/* !!수평정렬이 됨!! -> 다닥다닥 붙어있음 */
+		padding:15px;/* 콘텐츠 사이에 간격을 띄움 */
+	}
+	
+	/* :nth-child은 괄호안을 어떻게 구성하느냐(수열의 값을 넣어줘야함, 즉 수식으로 넣어주면 된다.)에 따라서 선택을 하게 된다.
+	    !!괄호에 n을 넣어주면 모든항목이 다 선택이 됨!!, 괄호에 1을 넣어주면 first-child와 같은 의미가 됨 */
+	li:nth-child(2n) { background:yellow; } /* 2, 4, 6, 8... : 앞에서 부터 카운팅이 되어지면서 갯수만큼 짝수번째 li를 선택하라는 의미이다. */
+	li:nth-child(2n+1) { background:silver; } /* 갯수만큼 홀수번째 li를 선택하게 됨. */
+	/* 괄호안은 임의적으로 구성하면 된다!! */
+	li:first-child { border-radius:10px 0 0 10px; } 
+	/* border-radius 값을 크게하면 크게할수록 원에 가까운 형태로 테두리 모양을 잡아줄 수 있다. 즉, 테두리의 윤곽을 잡아주는 속성이다. */
+	/* :first-child는 ul부모에서 자식 li에서 첫번째로 등장하는 li를 선택하라는 선택자이다. */
+	li:last-child { border-radius:0 10px 10px 0; } 
+	
+
+</style>
+
+</head>
+<body>
+
+	<ul> 
+		<li>First</li>
+		<li>Second</li>
+		<li>Third</li>
+		<li>Fourth</li>
+		<li>Fifth</li>
+		<li>Sixth</li>
+	</ul>
+
+</body>
+</html>

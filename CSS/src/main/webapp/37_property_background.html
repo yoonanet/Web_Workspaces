@@ -1,0 +1,129 @@
+﻿<!-- 
+	* 배경 속성
+		- https://www.w3.org/TR/css3-background/
+		- https://www.w3schools.com
+		- 특정 태그의 배경이미지 또는 색상을 지정하는 스타일 속성.
+		- 종류
+			1) background-image 속성
+				- 배경에 넣을 그림을 지정하는 스타일 속성.
+				- 속성에는 URL 단위 또는 그레이디언트를 입력.
+			2) background-size 속성
+				- 그림 크기를 조절할 때 사용하는 스타일 속성.
+				- CSS3에서 추가된 기능.
+				- 키워드 : contain/cover
+					. contain:너비를 100%로 지정한 것과 같은 효과.
+					. cover: 높이를 100%로 지정한 것과 같은 효과.  
+			3) background-repeat 속성
+				- repeat:이미지가 패턴을 이룸.
+				- 키워드:no-repeat/repeat/repeat-x/repeat-y/round/space
+				- repeat-x : x축 방향으로 이미지가 반복.
+				- repeat-y : y축 방향으로 이미지가 반복.
+			4) background-attachment 속성
+				- 배경 이미지를 어떠한 방식으로 화면에 붙일 것인지를 지정하는 스타일 속성.
+				- 키워드:fixed/scroll
+				- 속성의 기본 키워드 : scroll
+				- fixed : 스크롤을 이동해도 배경이미지 고정.
+			5) background-position 속성
+				- background-position:x축크기;
+				- background-position: x축크기 y축크기;
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배경 속성</title>
+
+<style type="text/css">
+	* { /* 태그들마다 속성을 부여하는 것이 아닌 디폴트의 값을 지정해주도록 하는 효과를 준다. */
+		margin: 0; /* body에서 제일 바깥 간격을 주지 않겠다는 의미 */
+		/* head, body,p 제일 외곽의 간격은 주지 않겠다 = 0으로 default값 설정하겠다 */
+		padding: 5px; /* 모든 등장 요소들에서 테두리와 텍스트 사이의 간격을 5px로 주는 것이다. */
+		border: 0px solid black; /* body, header, paragraph 마다의 border들이 그려지고 있음 */
+	}
+	
+	body {
+		background-image: url('images/BackgroundFront.png');/* 별도의 지정없이 링크만 넣으면 원이미지가 그대로 출력되어짐 */
+		background-size: 100%; 
+		/* 현재 브라우저의 크기에 맞춰 이미지가 리사이징을 해가면서 반영이 된다.(원이미지의 크기가 브라우저에 맞춰짐)
+		   낮게 잡혀진 이미지크기 부분에는 반복되어 표현이 된다. */
+		/* %로 값을 넣어주면 상대적인 좌표값으로 반영이 되고 있다. */
+		background-repeat: no-repeat; /* 자동 반복되어지지 않고 이미지 하나만 출력되어진다. 옵션사항의 부분으로 추가적인 처리를 수행할 수 있음 */
+		background-attachment:fixed; /* default는 scroll임, fixed는 고정임
+		이미지의 위치가 고정이 되어서 스크롤을 내려도 변화되지 않도록 한다!!  */
+		background-position: 0 100px; 
+		/* 백그라운드 위치에 좌표를 지정하는 것임.(기준 좌표: body영역에 좌측 상단 - 기준위치를 통해서 위치를 정함)
+		첫번째는 좌측 맨위에서 오른쪽으로 얼마나 떨어져 있는지 (x값), 
+		두번째는 좌측 맨위에서 아래쪽으로 얼마나 떨어져 있는지 (y값)를 위치값을 주는 것임  */
+	}
+	
+</style>
+
+</head>
+<body>
+	<h1>Lorem ipsum</h1>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+</body>
+</html>

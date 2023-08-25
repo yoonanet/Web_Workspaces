@@ -1,0 +1,41 @@
+﻿<!--
+	* 링크선택자<a>
+		- href 속성을 가지고 있는 a태그에 적용되는 선택자.
+		- 한 번 이상 다녀온 링크를 선택할 수 있는 선택자.
+		- 사용도(빈도)는 낮다.
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>링크선택자</title>
+
+<style type="text/css">
+	a { text-decoration:none; } /* 앵커의 기본속성인 밑줄을 제거해준다. */
+	a:visited { color:green; }
+	/* 앵커에 :visited선택자를 지정해주면 한번이라도 방문을 했었던 속성을 의미한다. */
+	a:link::after { content: "-" attr(href);}/* attr(href) => http://www.naver.com의 값이 됨. 이것을 출력해달라는 의도 */
+	/* after이므로 </a> 바로 앞, content = 뒤의 값을 출력하겠다 */
+	/* 한번 이상 방문한 앵커가 있다고 할 때 ::after를 해주게 되면 방문한 링크 후에 바로 끝나기 직전에 속성이 적용됨
+	   이 link는 앵커태그와만 함께 사용할 수 있는 선택자인 것이다. */
+</style>
+<!-- 요즘 웹사이트들은 a태그에서 마우스가 없을 때는 밑줄을 그어주지 않다가 
+     hover가 됐을때 밑줄(underline)을 그어주도록 하고 있다.  -->
+<!-- 현재 사이트들에서도 마우스를 hover하면 밑줄이 생기도록 하는 경우가 많음 -> hover할 때 decoration을 underline으로 설정해주면 된다 -->
+
+</head>
+<body>
+	
+	<h1>
+		<a>Nothing</a>
+	</h1>
+	
+	<h1>
+		<a href="http://www.naver.com">네이버</a>
+		<!-- 앵커특징: 한번이라도 방문하기 전이면 파란색, 한번이라도 방문을 했으면 보라색으로 바뀜
+		               기본속성으로는 밑줄이 그어지고 글씨가 진해짐. -->
+	</h1>
+	
+</body>
+</html>

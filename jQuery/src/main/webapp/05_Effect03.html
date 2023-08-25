@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sliding</title>
+	<style>
+		div {
+		  background: #3d9a44;   margin: 3px;
+		  width: 80px;   height: 40px;
+		  float: left; /* 수평정렬하여 보여지도록 함. */
+		}
+	</style>
+	
+	<script src="./js/jquery-3.6.3.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#slideUp').click(function(){
+				$('div').slideUp(); //slideUp메서드: 위로 사라지는 효과를 부여할 수 있는 기능이다.
+			});
+			
+			$('#slideDown').click(function(){
+				$('div').slideDown(); //slideDown메서드: 아래로 슬라이드되면서 화면에 보여지는 효과를 부여할 수 있는 기능이다.
+			});
+			
+			$('#slideToggle').click(function(){
+				$('div').slideToggle('slow'); //slideToggle메서드: 별도의 기능없이 속도만 느리게 지정, up과 down을 토글하는 형태로 동작을 부여할 수 있도록 한다. 
+			});                               //                   slideUp과 slideDown을 하나의 메서드로 제공하는 것이다.
+			
+		});
+
+	</script>
+</head>
+
+<body>
+	<button id="slideUp"> slideUp </button>
+	<button id="slideDown"> slideDown </button>
+	<button id="slideToggle"> slideToggle </button>
+	<p>
+	<div></div>   <div></div>    <div></div>      <div></div> 
+</body>
+  
+</html>

@@ -1,0 +1,223 @@
+﻿<!--
+	* 위치 속성 (뼈대에서 원하는 위치에 지정하는데 유용함)
+		- 프로그램 개발시 요소의 위치를 2가지 방법으로 설정.
+			. 절대적 위치 좌표:요소의 x좌표와 y좌표를 설정해 절대적 위치를 지정함. (이미지의 위치값과 화면 위치 좌표가 동일하게!, 기준점을 중심으로 UI화면을 구성)
+			
+			. 상대적 위치 좌표:요소를 입력한 순서대로 상대적으로 위치를 지정함. (이미지를 하나 그려놓고 lcd 비율형태로 출력해주는 것임)
+		- 아이폰:해상도가 고정되어 있으므로 절대 위치 좌표를 사용해 개발.
+		- 안드로이드폰:화면의 해상도가 다양. 상대적 위치 좌표를 사용해 개발. (모델에 따라 lcd의 사이즈가 다 다름)
+
+==========================================
+	* position 속성 : 웹 문서 안의 요소들을 자유자재로 배치해 주는 속성(양/음수 모두 사용 가능). 
+		- HTML 태그의 위치 설정 방법을 변경할 때 사용.
+		- 상대적 위치 좌표 사용시 키워드 (!!전에 그려진 것이 기준이였음!!)
+			. static : 요소(시작과 끝의 태그)를 문서의 흐름에 맞추어 배치(top / right / bottom / left 이용 배치 변경 불가). 
+			             float 속성을 이용해 좌우로 배치할 수 있음.
+			. relative : 현재 위치를 기준으로 위치를 지정. 이전 요소에 자연스럽게 연결해 배치하되 위치를 지정할 수 있음.
+		- 절대적 위치 좌표 사용시 키워드 (정해진 사이즈에 딱 맞춰서 제작.)
+		    기준점이 고정이 되는 것이다!!
+			. absolute : body 또는 컨테이닝 박스를 기준으로 위치를 지정할 수 있음. 원하는 위치를 지정해 배치. 
+							 요소를 감싸는 <div> 태그를 만들고 position을 relative로 지정해 놓고 사용해야 됨.
+			. fixed : 스크린을 기준으로 위치 고정. 지정한 위치에 고정해 배치. 화면에서 요소가 잘릴 수도 있음.
+
+	* z-index 속성 : default 값 : auto
+		- HTML 페이지의 뒤에 입력한 태그가 상위에 위치하는 순서를 변경시 사용.
+		- position 속성인 relative, absolute가 적용된 상태에서 적용해야 됨.
+==========================================
+
+		- <h1></h1> 코드를 적용시 2가지 문제점 발생
+			1. h1 태그 두 개가 붙어 있습니다(div 태그가 영역을 차지하지 않음).
+			2. 색상이 적용된 상자가 자신의 부모를 기준으로 위치를 잡지 않는다. 즉, position 속성에 
+				absolute 키워드를 적용하면 부모 태그가 영역을 차지하지 않음.
+		- 문제 해결 방안
+			. 자손의 position 속성에 absolute 키워드를 적용할 경우는 부모 태그에 몇가지 처리를 해야함.
+				1. 자손에게 position 속성을 absolute 키워드로 적용하면 부모에게 height 속성을 입력한다.
+				2. 자손의 position 속성을 absolute 키워드로 적용하면 부모의 position 속성을 relative 
+					키워드로 적용한다.
+
+	* overflow 속성
+		- 내부의 요소가 부모의 범위를 벗어날 때 어떻게 처리할 지 지정하는 속성.
+		- 키워드
+			. hidden : 영역을 벗어나는 부분을 보이지 않게 만듦.
+			. scroll : 영역을 벗어나는 부분을 스크롤로 만듦.
+			. auto : 영역을 벗어날 때 스크롤바 생기고, 벗어나지 않을 때 스크롤바 숨겨짐.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>위치 속성</title>
+  
+<style type="text/css">
+	.box1 { /* 이미지처럼 생각 */
+		width:100px; background:blue;
+		padding:20px; float:left; /* 수평정렬의 효과를 나타내어줌. */
+	}
+	
+	.box2 { /* 텍스트처럼 생각 */
+		position:static; /* top / right / bottom / left (이들은 위치좌표를 잡아주는 속성임) -> 적용(X) */
+		/* 위치속성에 static을 넣음 -> 대표적인 상대적 위치 좌표이다.
+		   이전에 그려진 대상(box1). 이전 대상에 영향을 받아서 다음에 그려질 대상(box2)이 어떻게 자리 배치가 되느냐 */
+		
+		left:30px;
+		top:30px; /* 상대적 위치좌표에서는 이 값들 자체에 대해서 동작이 되지 않는다. */
+		
+		width:300px; background:red;
+		padding:20px;
+	}
+	
+	.box3 {
+		width:100px;
+		background:yellow;
+		padding:20px;
+		margin-right:10px;
+		float:left; /* 기준점에서 상대적인 좌표값이 적용된 상태에서 밀어넣게 된다. 
+		               따라서 float의 개념이 적용되지 않는 것이다. */
+	}
+	
+	.box4 {
+		position:relative; /* 상대적위치를 주면 원래 출력되는 위치에서 상대적인 좌표값을 주게 되는 것임.
+		                      (relatice는 상대 좌표여도 top, left 적용)
+		                      
+		                      먼저 출력된 요소 다음에 위치가 고정 되는 것 = 상대 좌표   */
+		
+		left:50px;
+		top:30px; 
+		
+		width:300px;
+		background:green;
+		padding:20px;
+	}
+	
+	.temp {
+		clear:both; height:100px; /* float속성이 끊기로도록 dummy를 넣어준 것! */
+	}
+	
+	#wrap { /* 부모의 영역을 잡은 것임 */
+		position:relative; /* 상대좌표인 relative를 주로 부모에 적어준다. = 기준 좌푯값이 된다 */
+		
+		width:300px; height:300px;
+		border:1px solid #ccc; /* 0c0c0c인데 0을 생략한 것이다. 0은 검정색으로 회색에 가까운 값이 출력됨 */
+		/* position:absolute; */
+	}
+	
+	.box5 { /* 5개의 div를 보이게 하기 위해 마진값을 넣음 */
+		position: absolute; /* 자식들을 절대좌표 absolute로 지정 => 내가 잡게 되는 부모 relative의 영역이 기준이 된다. */
+	
+		margin:1px;
+		width:50px; height:50px;
+		background:blue;	
+	}
+	
+	/* 부모의 위치가 기준좌표가 되어 위치좌표 속성을 이용해서 위치를 잡아줄 수 있다.
+	   이는 절대위치 픽셀에(고정된 위치에서) 요소들을 배치할 수 있는 것이다. */
+	#abs1 { top:0; left:0; } 
+	#abs2 { top:10px; left:10px; background:red; }
+	#abs3 { top:20px; left:20px; background:green; }
+	#abs4 { top:30px; left:30px; background:blue; }
+	#abs5 { top:40px; left:40px; background:yellow; }
+	
+	#fix { 
+		position:fixed; /* !!fixed는 body(첫 시작점)의 영역이 기준점이 된다!! */
+		
+		top:5px;
+		right:5px;
+		
+		width:100px;
+		height:100px;
+		
+		background:#ff6a00;
+	}
+	
+	#wrap2 {
+		position:relative; /* 부모이기 때문에 기준점으로 잡음 */
+		
+		height:100px; 
+		/* 현재 화면상에 할당될 수 있는 영역이 100px밖에 안됨. 그래서 더 할당을 해줄 수 없음 
+		   따라서 영역에서 넘어가는 부분이 다른 영역을 침범하게 되는 상황이 발생함!!
+		   이상적인 방법은 할당된 영역만큼만 보여주고 다른 영역에 침범하지 않게끔 잘라서 보여주는 것이
+		   일반적인 UI의 구성방법이 된다. */
+		
+		overflow:scroll; /* hidden; */ /* 오버된 영역을 hidden시켜달라고 지정해주면 할당된 영역만큼만 보여주고 넘어가는 부분은 잘라준다. */
+		/* 감춰진 영역까지도 같이 보여줘야 한다면? overflow속성에서 scroll을 지정해줘서 넘어가는 영역을 스크롤로 볼 수 있도록 한다.*/
+	}
+	
+	.box6 {
+		position:absolute;	
+		width:100px; height:100px;
+	}
+	
+	/* 부모를 기준점으로 지정해놓고 자식의 위치를 지정해놓지 않으면 겹쳐서 보여준다. */
+	.box6:nth-child(1) { 
+		background:red;
+		
+		top:10px; left:10px;
+		
+		z-index:100; /* 크기에 따라서 위치를 달리하려고 하는 목적이다.
+		                값을 크게해주면 크게해준 것이 먼저 배치됨.
+		                숫자값에 따라서 배치하는 것이다!! */
+	}
+	
+	.box6:nth-child(2) {
+		background:green;
+		
+		top:50px; left:50px;
+		
+		z-index:50;	
+	}
+	
+	.box6:nth-child(3) {
+		background:blue;
+		
+		top:90px; left:90px;
+		
+		z-index:10;
+		
+	/* 
+	width가 100px으로 제한되어져 있음 (절대좌표와 상대좌표가 섞이니 영역을 침범하게 되는 경우가 생김) 
+	그래서 할당된 영역만큼만 보여주고 다른 영역을 침범하지 않게 잘라서 보여주는 것이 일반적인 UI의 구성법!!! 
+	*/
+	}
+	
+</style>
+  
+</head>
+<body>
+	<h1>상대적 위치좌표 - static</h1>
+	<div class="box1">박스1</div>
+	<div class="box2">박스2</div>
+	<!-- 이전에 그려질 대상의 내부에서 가지는 영역에 영향을 받아서 
+	     다음에 그려질 요소의 위치가 다음으로 그려지는 특징을 가짐 -->
+	
+	<hr />
+	<h1>상대적 위치좌표 - relative</h1>
+ 	<div class="box3">박스3</div>
+	<div class="box4">박스4</div>
+	<div class="temp"></div> <!-- 위에 지정한 float속성이 아래에도 다 영향을 받기 때문에 더미코드로 넣어주도록 함 -->
+   
+	<hr />
+	<h1>절대적 위치좌표 - absolute</h1>
+	<div id="wrap">
+		<div class="box5" id="abs1"></div>
+		<div class="box5" id="abs2"></div>
+		<div class="box5" id="abs3"></div>
+		<div class="box5" id="abs4"></div>
+		<div class="box5" id="abs5"></div>
+	</div>
+	
+	<hr />
+	<h1>절대적 위치좌표 - fixed</h1>
+	<div id="fix"></div>
+
+	<hr />
+	<h1>위치 좌표1</h1>
+	<div id="wrap2">
+		<div class="box6"></div>
+		<div class="box6"></div>
+		<div class="box6"></div>
+	</div>
+	<h1>위치 좌표2</h1>
+	
+</body>
+</html>

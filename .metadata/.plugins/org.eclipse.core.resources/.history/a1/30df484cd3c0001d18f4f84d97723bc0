@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	* {
+		font-size:16px;
+	}
+	
+	#header { 
+		font-size:20px; 
+		text-align:center; 
+	}
+	
+	table {
+		border : 1px solid green;
+		border-collapse : collapse;
+		background-color: silver;
+	}
+	
+	th {
+		font-size:20px;
+	}
+	
+	td,th {
+	    border : 1px solid green;
+	    height : 45px;
+	}
+	
+	input, select {
+		margin-left: 5px;
+	}
+	
+	textarea {
+		margin:5px;
+	}
+	
+	input[type=text] {
+		font-size:16px;
+		width:80px;
+	}
+	
+	input[type=text]:focus {
+		background-color: rgb(227, 242, 253);
+	} 
+	
+	#name, input[type=password] {
+		width: 280px;
+	}
+	
+	label {
+		font-size:18px;
+	}
+	
+	#btn {
+		text-align:center;
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+window.onload = function(){	  
+	
+	var inputId = document.getElementById('name').value;
+	
+	if(inputId.length > 0) {
+		inputClass.parentNode.style.backgroundColor = '#fff'; 
+	} else {
+		inputClass.parentNode.style.backgroundColor = '#efefef';
+	}
+		
+	
+	var form = document.getElementById('my_form');
+	
+	form.onsubmit = function(){ 
+		var name = document.getElementById('name').value; /* OK */
+		var password = document.getElementById('password').value; /* OK */
+		var phone1 = document.getElementById('phone1').value;
+		var phone2 = document.getElementById('phone2').value;
+		var phone3 = document.getElementById('phone3').value;
+		var job = document.getElementById('job').value; /* OK */
+		var jenderBtn = document.getElementsByName('ch1');
+		var hobbyBox = document.getElementsByName('ch2'); 
+		var about = document.getElementById('about').value; /* OK */
+		
+		var jender = '';
+		
+		for (var j of jenderBtn)
+	    {
+	        if (j.checked) {
+	        	jender += j.value;
+	        }
+	    }
+		
+		var hobby = '';
+		
+		for (var i = 0; i < hobbyBox.length; i++) {
+            if (hobbyBox[i].checked) {
+            	hobby += hobbyBox[i].value + ' ';
+            }
+        }
+		
+		
+		alert('이름 : ' + name + '\n' 
+				+ '비밀번호 : ' + password + '\n'
+				+ '전화번호 : ' + phone1 + ' - ' + phone2 + ' - ' + phone3 + '\n'
+				+ '직업 : ' + job +  '\n'
+				+ '성별 : ' + jender +  '\n'
+				+ '취미 : ' + hobby + '\n'
+				+ '자기 소개하는 글 : ' + about);
+        
+	}
+		
+};
+
+</script>
+
+</head>
+<body>
+
+	<form action="" id="my_form">	
+		<table>
+			<caption id="header">간단한 회원 정보 입력 양식</caption>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" id="name" class="text"></td>
+			</tr>
+			
+			<tr>
+				<th>암호</th>
+				<td><input type="password" id="password"></td>
+			</tr>
+			
+			<tr>
+				<th>전화번호</th>
+				<td><input type="text" id="phone1"  class="text"> - <input type="text" id="phone2"  class="text"> - <input type="text" id="phone3"  class="text"></td>
+			</tr>
+			
+			<tr>
+				<th>직업</th>
+				<td>
+					<select id="job">
+						<option>학생</option>
+						<option>직장</option>
+						<option>주부</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>성별</th>
+				<td>
+					<label><input type="radio" checked="checked" name="ch1" value="남">남</label>
+					<label><input type="radio" name="ch1" value="여">여</label>
+				</td>
+			</tr>
+			<tr>
+				<th>취미</th>
+				<td>
+					<label><input type="checkbox" name="ch2"  value="바둑">바둑</label>
+					<label><input type="checkbox" name="ch2"  value="게임">게임</label>
+					<label><input type="checkbox" name="ch2"  value="낚시">낚시</label>
+					<label><input type="checkbox" name="ch2"  value="독서">독서</label>
+				</td>
+			</tr>
+			<tr>
+				<th>자기 소개하는 글</th>
+				<td><textarea rows="5" cols="65" id="about"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" id="btn">
+					<input type="submit" value="등록하기"> 
+					<input type="reset" value="취소하기">
+				</td>
+			</tr>	
+		</table>
+	</form>		
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!--
+	* float 속성 => 하나의 어항에서 나무상자를 물 밑으로 누른다고 한다면 물이 밀리는 형국이 될 것임 그것이 부유한다는 것이다.
+	텍스트를 물로 생각. 거기서 이미지를 나무라고 생각하여 물밑으로 누른다고 생각을 하면 된다.
+	    - 이미지와 텍스트를 여백없이 출력하고자 할 때 사용이 되어지는 스타일 속성이다. 
+		- 웹 페이지를 만들 때 가장 많이 사용하는 스타일 속성.
+		- 키워드
+			. left:태그를 왼쪽에 붙임.
+			. right:태그를 오른쪽에 붙임.
+		- img 태그:inline 형식의 태그.
+		- p 태그:block 형식의 속성 태그.
+			  → 그림과 글자가 분리되어 출력.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>float 속성</title>
+
+<style type="text/css">
+	img {
+		float:left; /* 이미지를 왼쪽으로 밀어넣겠다는 것임. 물이 옆으로 밀리는 형국으로 출력이 되고 있음 */
+		margin-right:10px;
+	}
+	
+</style>
+
+</head>
+<body><!-- p태그는 블록영역이기 때문에 이미지와 텍스트가 붙어서 출력이 되지 않고, 줄 단락이 나눠져서 화면에 결과로 나타난다.  -->
+	<img src="images/image.jpg" /> <!-- 이미지 태그는 대표적인 인라인영역이다. -->
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting <!-- p태그는 블록영역이다. -->
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
+		industry. Lorem Ipsum has been the industry's standard dummy text ever
+		since the 1500s, when an unknown printer took a galley of type and
+		scrambled it to make a type specimen book. It has survived not only
+		five centuries, but also the leap into electronic typesetting,
+		remaining essentially unchanged. It was popularised in the 1960s with
+		the release of Letraset sheets containing Lorem Ipsum passages, and
+		more recently with desktop publishing software like Aldus PageMaker
+		including versions of Lorem Ipsum.</p>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>간단한 회원 정보 입력 양식</title>
+
+<link href="./3.8_quiz.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript">
+window.onload = function(){	  		
+	
+	var form = document.getElementById('my_form');
+	
+	form.onsubmit = function(){ 
+		var name = document.getElementById('name').value;
+		var password = document.getElementById('password').value; 
+		var phone1 = document.getElementById('phone1').value;
+		var phone2 = document.getElementById('phone2').value;
+		var phone3 = document.getElementById('phone3').value;
+		var job = document.getElementById('job').value;
+		var jenderBtn = document.getElementsByName('ch1');
+		var hobbyBox = document.getElementsByName('ch2'); 
+		var about = document.getElementById('about').value;
+		
+		var jender = '';
+		
+		for (var j of jenderBtn)
+	    {
+	        if (j.checked) {
+	        	jender += j.value;
+	        }
+	    }
+		
+		var hobby = '';
+		
+		for (var i = 0; i < hobbyBox.length; i++) {
+            if (hobbyBox[i].checked) {
+            	hobby += hobbyBox[i].value + '  ';
+            }
+        }
+		
+		
+		alert('이름 : ' + name + '\n' 
+				+ '비밀번호 : ' + password + '\n'
+				+ '전화번호 : ' + phone1 + '-' + phone2 + '-' + phone3 + '\n'
+				+ '직업 : ' + job +  '\n'
+				+ '성별 : ' + jender +  '\n'
+				+ '취미 : ' + hobby + '\n'
+				+ '자기 소개하는 글 : ' + about);
+        
+	}
+		
+};
+</script>
+
+</head>
+<body>
+
+	<form action="" id="my_form">	
+		<table>
+			<caption id="title">간단한 회원 정보 입력 양식</caption>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" id="name" class="text"></td>
+			</tr>
+			
+			<tr>
+				<th>암호</th>
+				<td><input type="password" id="password"></td>
+			</tr>
+			
+			<tr>
+				<th>전화번호</th>
+				<td><input type="text" id="phone1"> - <input type="text" id="phone2"> - <input type="text" id="phone3"></td>
+			</tr>
+			
+			<tr>
+				<th>직업</th>
+				<td>
+					<select id="job">
+						<option value="학생" SELECTED>학생</option>
+						<option value="직장">직장</option>
+						<option value="주부">주부</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>성별</th>
+				<td>
+					<label><input type="radio" checked="checked" name="ch1" value="남">남</label>
+					<label><input type="radio" name="ch1" value="여">여</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>취미</th>
+				<td>
+					<label><input type="checkbox" name="ch2"  value="바둑">바둑</label>
+					<label><input type="checkbox" name="ch2"  value="게임">게임</label>
+					<label><input type="checkbox" name="ch2"  value="낚시">낚시</label>
+					<label><input type="checkbox" name="ch2"  value="독서">독서</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>자기 소개하는 글</th>
+				<td><textarea rows="5" cols="65" id="about"  placeholder="자기를 소개하는 글을 쓰세요."></textarea></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" id="btn">
+					<input type="submit" value="등록하기"> 
+					<input type="reset" value="취소하기">
+				</td>
+			</tr>	
+		</table>
+	</form>		
+	
+</body>
+</html>

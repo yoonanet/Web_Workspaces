@@ -1,0 +1,39 @@
+﻿<!--
+	이전에는 디자이너들이 명암의 효과를 이미지를 출력하는 방법만이 존재했었지만
+	css에 와서 그레이디언트 효과를 적용할 수 있게끔 추가가 되어진 것이다.
+	* 그레이디언트(gradient) => 색상을 굴곡지게 표현해주는 속성이다.
+		- 2가지 이상의 색상을 혼합한 색을 만들어 채색하는 기능.
+		- http://www.colorzilla.com/gradient-editor/ : 색상의 굴곡을 눈으로 확인하면서 소스코드를 실시간적으로 가져갈 수 있는 사이트
+		- CSS3에서부터 제공되어진 기능
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gradient</title>
+
+<style type="text/css">
+	.gradient {
+		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2989d8+40,207cca+94,207cca+94,7db9e8+100 */
+		background: #1e5799; /* Old browsers */
+		/* 접두어로 브라우저를 붙인 속성은 표준이 되기 이전부터 지원되고 있는 속성이라는 것을 알 수 있다. */
+		background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 40%, #207cca 94%, #207cca 94%, #7db9e8 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 40%,#207cca 94%,#207cca 94%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 40%,#207cca 94%,#207cca 94%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+		/* moz, webkit 붙인 의미 = 표준 linear-gradient가 설정되기 전에 이미 해당 브라우저에서 제공되어지고 있었던 기능 
+		하위버전에서 문제가 생길 수 있으므로 같이 적어준 것
+		*/
+	}
+</style>
+  
+</head>
+<body>
+
+	<div class="gradient">
+		<h1>CSS3 Gradient</h1>
+	</div>
+	
+</body>
+</html>
